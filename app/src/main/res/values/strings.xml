@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Habit_Tracker</string>
+
+    <string name="edit_text_email">e-mail</string>
+    <string name="edit_text_password">Contraseña</string>
+    <string name="button_signup">Registrar</string>
+    <string name="button_login">Ingresar</string>
+
+    <string name="text_view_email">e-mail</string>
+    <string name="text_view_provider">Proveedor</string>
+    <string name="button_closesesion">Cerrar Sesión</string>
 </resources>
