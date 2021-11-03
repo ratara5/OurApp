@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "760574212877",
+    "project_id": "habittracker-ourapp-2021",
+    "storage_bucket": "habittracker-ourapp-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760574212877:android:cc6a88919875a6207cce44",
+        "android_client_info": {
+          "package_name": "com.misiontic.habit_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760574212877-fs9pgmfvajeo9sv7ogjnno0bqqot7ol8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCud2RWhM3HjEn7iCoz1pS7WC0AyCvQ6Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760574212877-fs9pgmfvajeo9sv7ogjnno0bqqot7ol8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
