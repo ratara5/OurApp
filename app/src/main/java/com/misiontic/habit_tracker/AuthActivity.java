@@ -32,11 +32,15 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class AuthActivity extends AppCompatActivity {
 
-    private int GOOGLE_SIGN_IN=100;
     private EditText etEmail, etPassword;
 
     private static final String TAG = "EmailPassword";
+    private static final String G_TAG = "Google";
+
+    private int GOOGLE_SIGN_IN=100;
+    int RC_SIGN_IN=1;
     private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +53,16 @@ public class AuthActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.def_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
         //if(currentUser != null){
-        //recargar();
+        //reload();
         //}
 
 
@@ -106,31 +116,23 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     public void loginGoogle(View view){
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build();
-
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-                    if (result.getResultCode() == Activity.RESULT_OK) {
+                    if (result.getResultCode() == RC_SIGN_IN) {
                         Intent data = result.getData();
                         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                         try {
                             // Google Sign In was successful, authenticate with Firebase
                             GoogleSignInAccount account = task.getResult(ApiException.class);
-                            Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+                            Log.d(G_TAG, "firebaseAuthWithGoogle:" + account.getId());
                             firebaseAuthWithGoogle(account.getIdToken());
                         } catch (ApiException e) {
                             // Google Sign In failed, update UI appropriately
-                            Log.w(TAG, "Google sign in failed", e);
+                            Log.w(G_TAG, "Google sign in failed", e);
                         }
                     }
                 }
@@ -151,19 +153,19 @@ public class AuthActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
+                            Log.d(G_TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             actualizarUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Log.w(G_TAG, "signInWithCredential:failure", task.getException());
                             actualizarUI(null);
                         }
                     }
                 });
     }
 
-    public void recargar() {
+    public void reload() {
 
     }
 
