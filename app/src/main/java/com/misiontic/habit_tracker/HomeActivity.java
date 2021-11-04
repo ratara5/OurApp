@@ -3,6 +3,7 @@ package com.misiontic.habit_tracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +26,8 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void salir() { //No existe esta referencia en OnClick
+    public void exit(View view) { //No existe esta referencia en OnClic
         FirebaseAuth.getInstance().signOut();
+        finish();
     }
 }

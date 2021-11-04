@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#009688"
+                android:onClick="registrar"
                 android:text="@string/button_signup" />
 
             <Space
@@ -64,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#009688"
+                android:onClick="ingresar"
                 android:text="@string/button_login" />
         </LinearLayout>
 

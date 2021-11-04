@@ -20,9 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class AuthActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
-    private Button btnRegistrar,btnIngresar;
 
-    private static final String TAG="EmailPassword";
+    private static final String TAG = "EmailPassword";
     private FirebaseAuth mAuth;
 
     @Override
@@ -30,37 +29,29 @@ public class AuthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
-        etEmail=(EditText)findViewById(R.id.emailEditText);
-        etPassword=(EditText)findViewById(R.id.passwordEditText);
-
-        btnRegistrar=(Button)findViewById(R.id.signupButton);
-        btnIngresar=(Button)findViewById(R.id.loginButton);
+        etEmail = (EditText) findViewById(R.id.emailEditText);
+        etPassword = (EditText) findViewById(R.id.passwordEditText);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            recargar();
-        }
-
-        String correo=etEmail.getText().toString();
-        String contrasena=etPassword.getText().toString();
-
-        btnRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrar(correo,contrasena);
-            }
-        });
-
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ingresar(correo,contrasena);
-            }
-        });
+        //if(currentUser != null){
+        //recargar();
+        //}
     }
 
-    public void registrar(String email, String password) {
+    public void registrar(View view) {
+        String correo = etEmail.getText().toString().trim();
+        String contrasena = etPassword.getText().toString().trim();
+        signup(correo, contrasena);
+    }
+
+    public void ingresar(View view) {
+        String correo = etEmail.getText().toString().trim();
+        String contrasena = etPassword.getText().toString().trim();
+        login(correo, contrasena);
+    }
+
+    public void signup(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -77,8 +68,7 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
-
-    public void ingresar(String email, String password) {
+    public void login(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -88,20 +78,20 @@ public class AuthActivity extends AppCompatActivity {
                     actualizarUI(user);
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.getException());
-                    Toast.makeText(AuthActivity.this, "Ingreso falló.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this, "Ingreso falló.", Toast.LENGTH_SHORT).show();
                     actualizarUI(null);
                 }
             }
         });
     }
 
-    public void recargar(){
+    public void recargar() {
 
     }
 
-    public void actualizarUI(FirebaseUser user){
-        Intent sig=new Intent(this,HomeActivity.class);
-        sig.putExtra("llave",user);
+    public void actualizarUI(FirebaseUser user) {
+        Intent sig = new Intent(this, HomeActivity.class);
+        sig.putExtra("llave", user);
         startActivity(sig);
     }
 }
