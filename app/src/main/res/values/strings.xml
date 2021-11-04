@@ -9,4 +9,6 @@
     <string name="text_view_email">e-mail</string>
     <string name="text_view_provider">Proveedor</string>
     <string name="button_closesesion">Cerrar Sesión</string>
+
+    <string name="default_web_client_id">760574212877-fs9pgmfvajeo9sv7ogjnno0bqqot7ol8.apps.googleusercontent.com</string>
 </resources>
