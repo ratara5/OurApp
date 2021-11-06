@@ -37,10 +37,34 @@ public class AuthActivity extends AppCompatActivity {
     private static final String TAG = "EmailPassword";
     private static final String G_TAG = "Google";
 
+    private FirebaseAuth mAuth;
+
     private int GOOGLE_SIGN_IN=100;
     int RC_SIGN_IN=1;
-    private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+                    if (result.getResultCode() == RC_SIGN_IN) {
+                        Intent data = result.getData();
+                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                        try {
+                            // Google Sign In was successful, authenticate with Firebase
+                            GoogleSignInAccount account = task.getResult(ApiException.class);
+                            Log.d(G_TAG, "firebaseAuthWithGoogle:" + account.getId());
+                            firebaseAuthWithGoogle(account.getIdToken());
+                        } catch (ApiException e) {
+                            // Google Sign In failed, update UI appropriately
+                            Log.w(G_TAG, "Google sign in failed", e);
+                        }
+                    }
+                }
+            }
+    );
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +78,15 @@ public class AuthActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.def_web_client_id))
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
         //if(currentUser != null){
         //reload();
         //}
-
-
 
     }
 
@@ -79,6 +100,10 @@ public class AuthActivity extends AppCompatActivity {
         String correo = etEmail.getText().toString().trim();
         String contrasena = etPassword.getText().toString().trim();
         login(correo, contrasena);
+    }
+
+    public void ingresarGoogle(View view) {
+        loginGoogle();
     }
 
     public void signup(String email, String password) {
@@ -115,32 +140,8 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
-    public void loginGoogle(View view){
-        ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-                    if (result.getResultCode() == RC_SIGN_IN) {
-                        Intent data = result.getData();
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-                        try {
-                            // Google Sign In was successful, authenticate with Firebase
-                            GoogleSignInAccount account = task.getResult(ApiException.class);
-                            Log.d(G_TAG, "firebaseAuthWithGoogle:" + account.getId());
-                            firebaseAuthWithGoogle(account.getIdToken());
-                        } catch (ApiException e) {
-                            // Google Sign In failed, update UI appropriately
-                            Log.w(G_TAG, "Google sign in failed", e);
-                        }
-                    }
-                }
-            }
-        );
-
-        //requestCode == RC_SIGN_IN
-
+    public void loginGoogle(){
+        mGoogleSignInClient.signOut();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         someActivityResultLauncher.launch(signInIntent);
     }

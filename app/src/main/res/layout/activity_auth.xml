@@ -7,6 +7,7 @@
     tools:context=".AuthActivity">
 
     <LinearLayout
+        android:id="@+id/authLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -56,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                android:onClick="loginGoogle"
+                android:onClick="ingresarGoogle"
                 app:srcCompat="@drawable/google_logo" />
 
             <Space
