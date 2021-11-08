@@ -12,4 +12,8 @@
 
     <string name="def_web_client_id">760574212877-fs9pgmfvajeo9sv7ogjnno0bqqot7ol8.apps.googleusercontent.com</string>
     <string name="htcol_intro">Habit Tracker Colombia</string>
+
+    <string name="facebook_app_id">428727968665232</string>
+    <string name="fb_login_protocol_scheme">fb428727968665232</string>
+
 </resources>
