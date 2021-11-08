@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Habit_Tracker">
         <activity
+            android:name=".habitsActivity"
+            android:exported="false" />
+        <activity
             android:name=".LaunchActivity"
             android:exported="true">
 
