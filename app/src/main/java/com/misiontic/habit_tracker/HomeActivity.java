@@ -2,6 +2,8 @@ package com.misiontic.habit_tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,8 +23,21 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        final DrawerLayout drawerlayout=findViewById(R.id.drawerLayout);
+
         mToolbar=findViewById(R.id.topAppBar);
         setSupportActionBar(mToolbar);
+
+        //toolbar.setTitle("Title"); Para navegación entre interfaces
+        //mToolbar.getNavigationIcon(); Para navegación entre interfaces
+        //mToolbar.setNavigationIcon(R.drawable.ic_menu); Para navegación entre interfaces
+
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerlayout.openDrawer(GravityCompat.START);
+            }
+        });
 
         tvEmail=(TextView)findViewById(R.id.emailTextView);
         tvProveedor=(TextView)findViewById(R.id.providerTextView);
