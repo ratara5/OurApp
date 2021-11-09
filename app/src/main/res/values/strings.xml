@@ -23,4 +23,10 @@
     <string name="content_description_logout">CerrarSesión Descripción</string>
     <string name="content_description_profile">Perfil Descripción</string>
 
+    <string name="icon_home">Inicio</string>
+    <string name="icon_chart">Herramientas</string>
+    <string name="icon_shop">Tienda</string>
+    <string name="icon_settings">Configuración</string>
+    <string name="support">Help</string>
+
 </resources>
