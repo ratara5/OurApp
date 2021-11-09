@@ -16,4 +16,11 @@
     <string name="facebook_app_id">428727968665232</string>
     <string name="fb_login_protocol_scheme">fb428727968665232</string>
 
+    <string name="profile">Perfil</string>
+    <string name="search">Búsqueda</string>
+    <string name="content_description_search">Búsqueda descripción</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="content_description_logout">CerrarSesión Descripción</string>
+    <string name="content_description_profile">Perfil Descripción</string>
+
 </resources>
