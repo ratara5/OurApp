@@ -41,6 +41,9 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
+
+
+
     public void exit(View view) { //No existe esta referencia en OnClic
         FirebaseAuth.getInstance().signOut();
         finish();
