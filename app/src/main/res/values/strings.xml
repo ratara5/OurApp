@@ -28,5 +28,6 @@
     <string name="icon_shop">Tienda</string>
     <string name="icon_settings">Configuración</string>
     <string name="support">Help</string>
+    <string name="user_name">User Name</string>
 
 </resources>

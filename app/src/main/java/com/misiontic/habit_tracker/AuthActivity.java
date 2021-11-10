@@ -258,7 +258,7 @@ public class AuthActivity extends AppCompatActivity {
     public void actualizarUI(FirebaseUser user) {
         Intent sig = new Intent(this, HomeActivity.class);
         sig.putExtra("email", user.getEmail().toString());
-        sig.putExtra("provider", user.getProviderId());
+        sig.putExtra("provider", user.getProviderData().toString());
         startActivity(sig);
     }
 }

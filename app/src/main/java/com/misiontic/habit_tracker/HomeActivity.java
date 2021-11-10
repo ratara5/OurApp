@@ -11,12 +11,14 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView tvEmail,tvProveedor;
+    private TextView tvEmail,tvProvider, tvUserName;
     private Toolbar mToolbar;
+    private View layoutUserName;
 
     enum ProviderType {
         BASIC
@@ -29,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         final DrawerLayout drawerlayout=findViewById(R.id.drawerLayout);
+
 
         mToolbar=findViewById(R.id.topAppBar);
         setSupportActionBar(mToolbar);
@@ -44,14 +47,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        NavigationView navigationView=findViewById(R.id.navigationView);
+
+
         tvEmail=(TextView)findViewById(R.id.emailTextView);
-        tvProveedor=(TextView)findViewById(R.id.providerTextView);
+        tvProvider=(TextView)findViewById(R.id.providerTextView);
+        layoutUserName=navigationView.getHeaderView(0);
+        tvUserName=(TextView)layoutUserName.findViewById(R.id.userTextView);
 
         String email=getIntent().getStringExtra("email");
         String provider=getIntent().getStringExtra("provider");
-        tvEmail.setText(email);
-        tvProveedor.setText(provider);
 
+        tvEmail.setText(email);
+        tvProvider.setText(provider);
+        tvUserName.setText(email);
     }
 
 
@@ -61,8 +70,6 @@ public class HomeActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
     }
-
-
 
 
     public void exit(View view) { //No existe esta referencia en OnClic
