@@ -20,20 +20,15 @@ public class HomeActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private View layoutUserName;
 
-    enum ProviderType {
-        BASIC
-    }
-        ;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         final DrawerLayout drawerlayout=findViewById(R.id.drawerLayout);
-
-
+        NavigationView navigationView=findViewById(R.id.navigationView);
         mToolbar=findViewById(R.id.topAppBar);
+
         setSupportActionBar(mToolbar);
 
         //toolbar.setTitle("Title"); Para navegación entre interfaces
@@ -46,9 +41,6 @@ public class HomeActivity extends AppCompatActivity {
                 drawerlayout.openDrawer(GravityCompat.START);
             }
         });
-
-        NavigationView navigationView=findViewById(R.id.navigationView);
-
 
         tvEmail=(TextView)findViewById(R.id.emailTextView);
         tvProvider=(TextView)findViewById(R.id.providerTextView);
@@ -63,14 +55,12 @@ public class HomeActivity extends AppCompatActivity {
         tvUserName.setText(email);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
     }
-
 
     public void exit(View view) {
         FirebaseAuth.getInstance().signOut();
