@@ -18,6 +18,11 @@ public class HomeActivity extends AppCompatActivity {
     private TextView tvEmail,tvProveedor;
     private Toolbar mToolbar;
 
+    enum ProviderType {
+        BASIC
+    }
+        ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +47,10 @@ public class HomeActivity extends AppCompatActivity {
         tvEmail=(TextView)findViewById(R.id.emailTextView);
         tvProveedor=(TextView)findViewById(R.id.providerTextView);
 
-        String llave=getIntent().getStringExtra("llave");
-        tvEmail.setText(llave); //user[0] o user.email?
-        tvProveedor.setText(llave); //user[1] o user.provider?
+        String email=getIntent().getStringExtra("email");
+        String provider=getIntent().getStringExtra("provider");
+        tvEmail.setText(email);
+        tvProveedor.setText(provider);
 
     }
 
