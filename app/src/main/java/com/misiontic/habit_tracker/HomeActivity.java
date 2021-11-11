@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -53,8 +54,9 @@ public class HomeActivity extends AppCompatActivity {
         String email = getIntent().getStringExtra("email");
         String provider = getIntent().getStringExtra("provider");
 
-
         tvUserName.setText(email);
+
+
 
 
     }
@@ -70,13 +72,17 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.profile:
-                Intent sig = new Intent(this, NewActivity.class);
-                startActivity(sig);
+                //getFragmentManager().beginTransaction()
+                        //.replace(R.id.fragmentContainerView, ProfileFragment)
+                        //.commit();
+
                 return true;
 
             case R.id.search:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
+                Intent sig = new Intent(this, NewActivity.class);
+                startActivity(sig);
                 return true;
 
             case R.id.logout:
