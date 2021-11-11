@@ -48,9 +48,8 @@ public class AuthActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    private int GOOGLE_SIGN_IN=100;
-    int RC_SIGN_IN=1;
-
+    private int GOOGLE_SIGN_IN = 100;
+    int RC_SIGN_IN = 1;
 
     private GoogleSignInClient mGoogleSignInClient;
     private CallbackManager mCallbackManager; //FB
@@ -61,10 +60,6 @@ public class AuthActivity extends AppCompatActivity {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-
-                    //FB
-
-
                     if (result.getResultCode() == RC_SIGN_IN) {
                         Intent data = result.getData();
                         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -85,10 +80,6 @@ public class AuthActivity extends AppCompatActivity {
     );
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +98,7 @@ public class AuthActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        mCallbackManager=CallbackManager.Factory.create(); //FB
+        mCallbackManager = CallbackManager.Factory.create(); //FB
 
         //if(currentUser != null){
         //reload();
@@ -169,16 +160,16 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
-    public void loginGoogle(){
+    public void loginGoogle() {
         mGoogleSignInClient.signOut();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         someActivityResultLauncher.launch(signInIntent);
     }
 
     // FB:1
-    public void loginFacebook(){
-            LoginManager.getInstance().logInWithReadPermissions(AuthActivity.this, Arrays.asList("email"));
-            LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+    public void loginFacebook() {
+        LoginManager.getInstance().logInWithReadPermissions(AuthActivity.this, Arrays.asList("email"));
+        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
