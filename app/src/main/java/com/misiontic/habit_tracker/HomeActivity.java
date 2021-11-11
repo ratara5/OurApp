@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -56,6 +60,10 @@ public class HomeActivity extends AppCompatActivity {
 
         tvUserName.setText(email);
 
+        HomeFragment homeFragment=new HomeFragment();
+        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, homeFragment);
+        fragmentTransaction.commit();
 
 
 
@@ -72,9 +80,10 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.profile:
-                //getFragmentManager().beginTransaction()
-                        //.replace(R.id.fragmentContainerView, ProfileFragment)
-                        //.commit();
+                ProfileFragment profileFragment=new ProfileFragment();
+                FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, profileFragment);
+                fragmentTransaction.commit();
 
                 return true;
 

@@ -37,15 +37,12 @@
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragmentContainerView"
+            <fragment
+                android:id="@+id/nav_host_fragment_activity_main"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="512dp"
-                android:paddingBottom="512dp"
-                app:defaultNavHost="true"
-                app:navGraph="@navigation/main" />
+                android:layout_height="match_parent"
+                app:defaultNavHost="true" />
 
 
         </androidx.core.widget.NestedScrollView>
