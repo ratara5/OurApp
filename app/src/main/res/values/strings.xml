@@ -33,5 +33,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_view_home">Este es el Home</string>
     <string name="text_view_profile">Este es el Perfil</string>
+    <string name="text_view_tools">Estas son las Herramientas</string>
+    <string name="text_view_help">Esta es la Ayuda</string>
 
 </resources>

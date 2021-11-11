@@ -60,10 +60,13 @@ public class HomeActivity extends AppCompatActivity {
 
         tvUserName.setText(email);
 
-        HomeFragment homeFragment=new HomeFragment();
-        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, homeFragment);
-        fragmentTransaction.commit();
+        //HomeFragment homeFragment=new HomeFragment();
+        //FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+        //fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, homeFragment);
+        //fragmentTransaction.commit();
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
 
 
