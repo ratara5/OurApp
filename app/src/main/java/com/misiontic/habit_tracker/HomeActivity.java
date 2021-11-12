@@ -39,18 +39,18 @@ public class HomeActivity extends AppCompatActivity {
 
         final DrawerLayout drawerlayout = findViewById(R.id.drawerLayout);
         NavigationView navigationView = findViewById(R.id.navigationView);
-        mToolbar = findViewById(R.id.topAppBar);
 
-        setSupportActionBar(mToolbar);
+        //mToolbar = findViewById(R.id.topAppBar);
+        //setSupportActionBar(mToolbar);
 
         //toolbar.setTitle("Title"); Para navegación entre interfaces
         //mToolbar.getNavigationIcon(); Para navegación entre interfaces
         //mToolbar.setNavigationIcon(R.drawable.ic_menu); Para navegación entre interfaces
 
 
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(View view){
                 drawerlayout.openDrawer(GravityCompat.START);
             }
         });
