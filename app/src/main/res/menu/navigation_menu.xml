@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <item
-        android:id="@+id/profile"
+        android:id="@+id/menuProfile"
         android:contentDescription="@string/content_description_profile"
         android:title="@string/profile" />
     <!--android:icon="@drawable/ic_favorite_24dp"-->
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/menuSearch"
         android:title="@string/search"
         android:contentDescription="@string/content_description_search"/>
     <!--android:icon="@drawable/ic_search_24dp"-->
-
-    <item
-        android:id="@+id/logout"
-        android:title="@string/logout"
-        android:contentDescription="@string/content_description_logout" />
-
 
     <item android:id="@+id/menuHome"
         android:icon="@drawable/ic_home"
@@ -37,4 +31,10 @@
 
     <item android:id="@+id/menuSupport"
         android:title="@string/support"/>
+
+    <item
+        android:id="@+id/menuLogout"
+        android:title="@string/logout"
+        android:contentDescription="@string/content_description_logout" />
+
 </menu>

@@ -5,6 +5,11 @@
     android:id="@+id/main"
     app:startDestination="@id/menuHome">
 
+    <fragment
+        android:id="@+id/menuProfile"
+        android:name="com.misiontic.habit_tracker.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/menuHome"
@@ -17,15 +22,13 @@
         android:name="com.misiontic.habit_tracker.ToolsFragment"
         android:label="fragment_tools"
         tools:layout="@layout/fragment_tools" />
+
     <fragment
         android:id="@+id/menuSupport"
         android:name="com.misiontic.habit_tracker.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.misiontic.habit_tracker.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+
+
 
 </navigation>
