@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -27,6 +28,9 @@ public class HomeActivity extends AppCompatActivity {
     private TextView tvUserName;
     private Toolbar mToolbar;
     private View layoutUserName;
+
+    //private NavController navController;
+    //private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,6 @@ public class HomeActivity extends AppCompatActivity {
         tvUserName = (TextView) layoutUserName.findViewById(R.id.userTextView);
 
         String email = getIntent().getStringExtra("email");
-        String provider = getIntent().getStringExtra("provider");
 
         tvUserName.setText(email);
 
@@ -64,6 +67,7 @@ public class HomeActivity extends AppCompatActivity {
         //FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         //fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, homeFragment);
         //fragmentTransaction.commit();
+
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -83,11 +87,14 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.profile:
+                //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+                //NavigationUI.setupWithNavController(navigationView, navController);
+                //navController.getGraph().clear();
+                //navController.navigate(R.id.menuProfile);
                 ProfileFragment profileFragment=new ProfileFragment();
                 FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, profileFragment);
                 fragmentTransaction.commit();
-
                 return true;
 
             case R.id.search:
@@ -108,7 +115,6 @@ public class HomeActivity extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
