@@ -77,47 +77,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.profile:
-                //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-                //NavigationUI.setupWithNavController(navigationView, navController);
-                //navController.getGraph().clear();
-                //navController.navigate(R.id.menuProfile);
-                ProfileFragment profileFragment=new ProfileFragment();
-                FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, profileFragment);
-                fragmentTransaction.commit();
-                return true;
-
-            case R.id.search:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                Intent sig = new Intent(this, NewActivity.class);
-                startActivity(sig);
-                return true;
-
-            case R.id.logout:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
 
     public void exit(View view) {
         FirebaseAuth.getInstance().signOut();
