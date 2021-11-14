@@ -39,7 +39,7 @@
             android:name=".NewActivity"
             android:exported="false" />
         <activity
-            android:name=".habitsActivity"
+            android:name=".HabitsActivity"
             android:exported="false" />
         <activity
             android:name=".LaunchActivity"

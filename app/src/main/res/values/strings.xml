@@ -36,5 +36,6 @@
     <string name="text_view_tools">Estas son las Herramientas</string>
     <string name="text_view_help">Esta es la Ayuda</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="accountant">Contador:0</string>
 
 </resources>
