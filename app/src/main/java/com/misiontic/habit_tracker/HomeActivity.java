@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeActivity extends AppCompatActivity {
 
     private TextView tvUserName;
-    private Toolbar mToolbar;
+    //private Toolbar mToolbar;
     private View layoutUserName;
 
     //private NavController navController;

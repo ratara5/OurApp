@@ -192,7 +192,7 @@ public class AuthActivity extends AppCompatActivity {
     public void actualizarUI(FirebaseUser user) {
         if(user!=null){
             Intent sig = new Intent(this, HomeActivity.class);
-            sig.putExtra("llave", user);
+            sig.putExtra("email", user.getEmail().toString());
             startActivity(sig);
         }
         Toast.makeText(this,"Error intente nuevamente", Toast.LENGTH_SHORT);
