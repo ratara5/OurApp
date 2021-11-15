@@ -37,5 +37,9 @@
     <string name="text_view_help">Esta es la Ayuda</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="accountant">Contador:0</string>
+    <string name="text_view_logout">¿Seguro deseas cerrar sesión?</string>
+    <string name="ok">OK</string>
+    <string name="yes">SI</string>
+    <string name="no">NO</string>
 
 </resources>
