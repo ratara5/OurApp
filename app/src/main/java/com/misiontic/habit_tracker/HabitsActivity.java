@@ -3,6 +3,7 @@ package com.misiontic.habit_tracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class HabitsActivity extends AppCompatActivity {
 
@@ -11,4 +12,6 @@ public class HabitsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habits);
     }
+
+
 }

@@ -48,35 +48,41 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289" />
+        app:layout_constraintVertical_bias="0.292" />
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="114dp"
-        android:layout_height="37dp"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
         android:layout_marginTop="76dp"
         android:fontFamily="@font/comfortaa"
         android:textAlignment="viewStart"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.315"
         tools:text="6-5-5-4" />
 
     <CheckBox
         android:id="@+id/checkBox2"
-        android:layout_width="113dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="115dp"
+        android:layout_height="42dp"
         android:fontFamily="@font/comfortaa"
         android:text="7-7-5-5"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="149dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.377" />
 
     <CheckBox
         android:id="@+id/checkBox3"
@@ -87,8 +93,12 @@
         android:text="9-9-7-6"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="284dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textCont"
@@ -100,14 +110,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.192" />
+        app:layout_constraintVertical_bias="0.208" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="123dp"
-        android:layout_height="72dp"
+        android:layout_width="160dp"
+        android:layout_height="78dp"
         android:fontFamily="@font/comfortaa"
         android:text="TOCA AQUÍ"
         android:textColorLink="#A51F1F"
