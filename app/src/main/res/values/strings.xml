@@ -42,5 +42,6 @@
     <string name="yes">SI</string>
     <string name="no">NO</string>
     <string name="push_ups">Realizar flexiones</string>
+    <string name="easy_routine">Fácil</string>
 
 </resources>
