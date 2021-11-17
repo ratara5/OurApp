@@ -36,12 +36,15 @@
     <string name="text_view_tools">Estas son las Herramientas</string>
     <string name="text_view_help">Esta es la Ayuda</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="accountant">Contador:0</string>
+    <string name="accountant">0</string>
     <string name="text_view_logout">¿Seguro deseas cerrar sesión?</string>
     <string name="ok">OK</string>
     <string name="yes">SI</string>
     <string name="no">NO</string>
     <string name="push_ups">Realizar flexiones</string>
     <string name="easy_routine">Fácil</string>
+    <string name="touch_here">TOCA AQUÍ</string>
+    <string name="half_routine">Medio</string>
+    <string name="advanced_routine">Avanzado</string>
 
 </resources>
