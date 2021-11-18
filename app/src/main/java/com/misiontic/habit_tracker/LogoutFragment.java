@@ -71,12 +71,14 @@ public class LogoutFragment extends Fragment {
         Activity HomeActivity = getActivity();
         HomeActivity.onBackPressed();
     }
+
     public void stay(View view) {
         //Activity HomeActivity = getActivity();
-        HomeFragment homeFragment=new HomeFragment();
-        FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, homeFragment);
-        fragmentTransaction.commit();
-    }
+        //HomeFragment homeFragment=new HomeFragment();
+        //FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+        //fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, homeFragment);
+        //fragmentTransaction.commit();
 
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_container, new HomeFragment()).commit();
+    }
 }
