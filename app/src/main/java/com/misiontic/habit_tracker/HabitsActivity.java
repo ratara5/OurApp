@@ -21,16 +21,15 @@ public class HabitsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habits);
 
-        encontrarComponentesPorId();
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.my_child_toolbar);
         setSupportActionBar(myChildToolbar);
 
-        // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
 
-        // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
+
+        encontrarComponentesPorId();
 
         btnTouchAction.setOnClickListener(new  View.OnClickListener() {
             @Override
