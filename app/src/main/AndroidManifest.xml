@@ -41,7 +41,8 @@
             android:exported="false" />
         <activity
             android:name=".HabitsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName="com.misiontic.habit_tracker.HomeActivity"/>
         <activity
             android:name=".LaunchActivity"
             android:exported="true">

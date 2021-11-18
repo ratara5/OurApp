@@ -1,12 +1,15 @@
 package com.misiontic.habit_tracker;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 public class HabitsActivity extends AppCompatActivity {
 
@@ -19,6 +22,15 @@ public class HabitsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_habits);
 
         encontrarComponentesPorId();
+        Toolbar myChildToolbar =
+                (Toolbar) findViewById(R.id.my_child_toolbar);
+        setSupportActionBar(myChildToolbar);
+
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
 
         btnTouchAction.setOnClickListener(new  View.OnClickListener() {
             @Override
