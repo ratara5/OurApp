@@ -47,4 +47,12 @@
     <string name="half_routine">Medio</string>
     <string name="advanced_routine">Avanzado</string>
 
+    <string name="edit_text_name_first">nombres</string>
+    <string name="edit_text_name_last">apellidos</string>
+    <string name="edit_text_phone">teléfono</string>
+    <string name="edit_text_address">dirección</string>
+    <string name="btn_get">VER</string>
+    <string name="btn_set">GUARDAR</string>
+    <string name="btn_delete">ELIMINAR</string>
+
 </resources>
