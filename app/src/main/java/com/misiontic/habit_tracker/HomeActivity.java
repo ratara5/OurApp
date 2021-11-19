@@ -72,7 +72,11 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
+        //pasar e-mail a ProfileFragment
+        Bundle args = new Bundle();
+        args.putString("emailFromActivityHome", email);
+        ProfileFragment profileFragment = new ProfileFragment();
+        profileFragment.setArguments(args);
 
     }
 

@@ -42,8 +42,7 @@
         <activity
             android:name=".HabitsActivity"
             android:exported="false"
-            android:parentActivityName="com.misiontic.habit_tracker.HabitsActivity"
-            "/>
+            android:parentActivityName="com.misiontic.habit_tracker.HabitsActivity"/>
         <activity
             android:name=".LaunchActivity"
             android:exported="true">
