@@ -55,4 +55,6 @@
     <string name="btn_set">GUARDAR</string>
     <string name="btn_delete">ELIMINAR</string>
 
+    <string name="done">done</string>
+
 </resources>
