@@ -14,8 +14,7 @@ public class ListActivity extends AppCompatActivity {
 
     ListView listViewData;
             ArrayAdapter<String>adapter;
-            String [] arrayHabitos ={habito1, habito2, habito3, habito4, habito5, habito6,
-            habito7,habito8, habito9, habito10};
+            String [] arrayHabitos ={};
 
 
 

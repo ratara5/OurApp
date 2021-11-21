@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +19,7 @@ import android.widget.Button;
  */
 public class ToolsFragment extends Fragment {
 
-    Button btnPushUps;
+    ImageButton btnPushUps;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,7 +63,7 @@ public class ToolsFragment extends Fragment {
         // return inflater.inflate(R.layout.fragment_tools, container, false);
         View view = inflater.inflate(R.layout.fragment_tools,container,false);
 
-        btnPushUps = (Button) view.findViewById(R.id.btnPushUps);
+        btnPushUps = (ImageButton) view.findViewById(R.id.btnPushUps);
         btnPushUps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

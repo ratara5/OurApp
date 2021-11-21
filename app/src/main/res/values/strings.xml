@@ -22,6 +22,8 @@
     <string name="logout">Cerrar Sesión</string>
     <string name="content_description_logout">CerrarSesión Descripción</string>
     <string name="content_description_profile">Perfil Descripción</string>
+    <string name="content_description_btn_push_ups">Ir a las flexiones</string>
+    <string name="content_description_btn_maps">Ir al mapa</string>
 
     <string name="icon_home">Inicio</string>
     <string name="icon_chart">Herramientas</string>
@@ -33,7 +35,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_view_home">Este es el Home</string>
     <string name="text_view_profile">Este es el Perfil</string>
-    <string name="text_view_tools">Estas son las Herramientas</string>
+    <string name="text_view_tools">Herramientas</string>
     <string name="text_view_help">Esta es la Ayuda</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="accountant">0</string>
@@ -56,5 +58,6 @@
     <string name="btn_delete">ELIMINAR</string>
 
     <string name="done">done</string>
+    <string name="locations">Ubicaciones útiles</string>
 
 </resources>
