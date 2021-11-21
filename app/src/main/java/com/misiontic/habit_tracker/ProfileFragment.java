@@ -21,6 +21,7 @@ import com.misiontic.habit_tracker.AuthActivity;
 public class ProfileFragment extends Fragment {
 
     EditText etEmail, etNameFirst, etNameLast, etPhone, etAddress;
+    String email;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,12 +60,10 @@ public class ProfileFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            String email = getArguments().getString("emailFromActivityHome");
+            //String email = getArguments().getString("emailFromActivityHome"); Trayendo argumentos no funcionó
         }
 
-        //AuthActivity authActivity= new AuthActivity();
-        //FirebaseUser user = authActivity.mAuth.getCurrentUser();
-
+        email = HomeActivity.tvUserName.getText().toString();
 
 
     }
@@ -83,7 +82,7 @@ public class ProfileFragment extends Fragment {
         etPhone= (EditText) view.findViewById(R.id.editTextPhone);
         etAddress= (EditText) view.findViewById(R.id.editTextAddress);
 
-        //etEmail.setText();
+        etEmail.setText(email);
 
         return view;
     }

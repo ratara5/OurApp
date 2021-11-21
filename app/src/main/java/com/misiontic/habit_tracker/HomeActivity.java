@@ -28,7 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView tvUserName;
+    static TextView tvUserName;
     //private Toolbar mToolbar;
     private View layoutUserName;
 
