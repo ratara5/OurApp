@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.misiontic.habit_tracker.AuthActivity;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
@@ -58,9 +62,9 @@ public class ProfileFragment extends Fragment {
             String email = getArguments().getString("emailFromActivityHome");
         }
 
+        //AuthActivity authActivity= new AuthActivity();
+        //FirebaseUser user = authActivity.mAuth.getCurrentUser();
 
-        //etEmail.setText(email);
-        //etNameFirst=(EditText) getView().findViewById(R.id.editTextNameFirst);
 
 
     }
@@ -70,6 +74,17 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+
+        etEmail= (EditText) view.findViewById(R.id.editTextEmail);
+        etNameFirst= (EditText) view.findViewById(R.id.editTextNameFirst);
+        etNameLast= (EditText) view.findViewById(R.id.editTextNameLast);
+        etPhone= (EditText) view.findViewById(R.id.editTextPhone);
+        etAddress= (EditText) view.findViewById(R.id.editTextAddress);
+
+        //etEmail.setText();
+
         return view;
     }
 }
