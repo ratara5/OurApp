@@ -19,7 +19,7 @@ import android.widget.ImageButton;
  */
 public class ToolsFragment extends Fragment {
 
-    ImageButton btnPushUps;
+    ImageButton btnPushUps, btnMaps;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,6 +68,15 @@ public class ToolsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), HabitsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnMaps = (ImageButton) view.findViewById(R.id.btnMaps);
+        btnMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);
             }
         });

@@ -85,10 +85,10 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         //pasar e-mail a ProfileFragment
-        Bundle args = new Bundle();
-        args.putString("emailFromActivityHome", email);
-        ProfileFragment profileFragment = new ProfileFragment();
-        profileFragment.setArguments(args);
+        //Bundle args = new Bundle();
+        //args.putString("emailFromActivityHome", email);
+        //ProfileFragment profileFragment = new ProfileFragment();
+        //profileFragment.setArguments(args);
 
     }
 

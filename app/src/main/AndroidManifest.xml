@@ -35,7 +35,8 @@
         <activity
             android:name=".MapsActivity"
             android:exported="false"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:parentActivityName="com.misiontic.habit_tracker.HabitsActivity"/>
         <activity
             android:name=".NewActivity"
             android:exported="false" />
