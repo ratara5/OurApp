@@ -2,16 +2,22 @@ package com.misiontic.habit_tracker;
 
 import android.os.Bundle;
 
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.misiontic.habit_tracker.AuthActivity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,8 +28,11 @@ public class ProfileFragment extends Fragment {
 
     EditText etEmail, etNameFirst, etNameLast, etPhone, etAddress;
     String email;
+    Button btnGet, btnSave, btnDelete;
 
     //private FirebaseAuth mAute;
+
+    private FirebaseFirestore db;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,6 +82,8 @@ public class ProfileFragment extends Fragment {
         //email=currenUser.getEmail().toString();
         //Pero, habría acceso a todos los datos también en este fragment (?)
 
+        db = FirebaseFirestore.getInstance();
+
     }
 
     @Override
@@ -89,7 +100,28 @@ public class ProfileFragment extends Fragment {
         etPhone= (EditText) view.findViewById(R.id.editTextPhone);
         etAddress= (EditText) view.findViewById(R.id.editTextAddress);
 
+        btnGet=(Button)view.findViewById(R.id.getButton);
+        btnSave=(Button)view.findViewById(R.id.saveButton);
+        btnDelete=(Button)view.findViewById(R.id.deleteButton);
+
         etEmail.setText(email);
+
+
+        btnSave.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Map<String, Object> user = new HashMap<>();
+                user.put("first", etNameFirst);
+                user.put("last", etNameLast);
+                user.put("phone", etPhone);
+                user.put("addres", etAddress);
+                db.collection("users").document(email).set(user);
+
+            }
+        });
+
+
+
 
         return view;
     }

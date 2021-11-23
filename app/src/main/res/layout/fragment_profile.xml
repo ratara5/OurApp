@@ -64,19 +64,19 @@
             android:hint="@string/edit_text_address"/>
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/getButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_get" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_set" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/deleteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_delete"
