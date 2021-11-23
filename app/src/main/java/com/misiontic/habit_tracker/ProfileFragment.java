@@ -109,19 +109,16 @@ public class ProfileFragment extends Fragment {
 
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
+            public void onClick(View view){
+                getContext();
                 Map<String, Object> user = new HashMap<>();
-                user.put("first", etNameFirst);
-                user.put("last", etNameLast);
-                user.put("phone", etPhone);
-                user.put("addres", etAddress);
+                user.put("first", etNameFirst.getText().toString());
+                user.put("last", etNameLast.getText().toString());
+                user.put("phone", etPhone.getText().toString());
+                user.put("address", etAddress.getText().toString());
                 db.collection("users").document(email).set(user);
-
             }
         });
-
-
-
 
         return view;
     }
