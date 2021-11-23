@@ -23,6 +23,8 @@ public class ProfileFragment extends Fragment {
     EditText etEmail, etNameFirst, etNameLast, etPhone, etAddress;
     String email;
 
+    //private FirebaseAuth mAute;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,6 +67,11 @@ public class ProfileFragment extends Fragment {
 
         email = HomeActivity.tvUserName.getText().toString();
 
+        //También se pueden usar las siguientes 3 líneas para llenar campo e-mail
+        //mAute = FirebaseAuth.getInstance();
+        //FirebaseUser currenUser = mAute.getCurrentUser();
+        //email=currenUser.getEmail().toString();
+        //Pero, habría acceso a todos los datos también en este fragment (?)
 
     }
 
