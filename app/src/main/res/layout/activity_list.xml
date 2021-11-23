@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutCheckList"
+        android:layout_width="279dp"
+        android:layout_height="335dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <CheckBox
+            android:id="@+id/CBhabito1Agua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/habit1_water" />
+
+        <CheckBox
+            android:id="@+id/CBhabito2Libro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/habit2_read" />
+
+        <CheckBox
+            android:id="@+id/CBhabito3despertarTemprano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/habit3_wakeupEarly" />
+
+        <CheckBox
+            android:id="@+id/CBhabito4Flexiones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/habit4_pushups" />
+
+        <CheckBox
+            android:id="@+id/CBhabito5Idioma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/habit5_newLenguage" />
+
+        <CheckBox
+            android:id="@+id/CBhabito6Diario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/habit6_dairy" />
+
+        <CheckBox
+            android:id="@+id/CBhabito7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/habit7_floss" />
+    </LinearLayout>
+
+
+    <!-- Main content -->
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extended_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:layout_marginTop="254dp"
+        android:text="@string/add_your_habit"
+        app:icon="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutCheckList" />
+
+    <LinearLayout
+        android:id="@+id/layoutTittleList"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/primaryLightColor"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.004">
+
+        <TextView
+            android:id="@+id/tvListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/personalice_habits"
+            android:textAlignment="center"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/tvListInstructions"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:fontFamily="@font/comfortaa"
+            android:text="Elige 3 habitos que quieras implementar, o agrega uno propio"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

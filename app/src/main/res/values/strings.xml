@@ -59,5 +59,14 @@
 
     <string name="done">done</string>
     <string name="locations">Ubicaciones útiles</string>
+    <string name="add_your_habit">Agrega tu habito</string>
+    <string name="habit1_water">Toma agua</string>
+    <string name="habit2_read">Lee un poco</string>
+    <string name="habit3_wakeupEarly">Despierta temprano</string>
+    <string name="habit4_pushups">Realiza flexiones</string>
+    <string name="habit5_newLenguage">Aprende un nuevo idioma</string>
+    <string name="habit6_dairy">Escribe un diario</string>
+    <string name="habit7_floss">Usa ceda dental</string>
+    <string name="personalice_habits">Personaliza tus habitos diarios</string>
 
 </resources>
