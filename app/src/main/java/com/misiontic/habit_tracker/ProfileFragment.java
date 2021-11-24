@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -147,6 +148,14 @@ public class ProfileFragment extends Fragment {
                     public void onFailure(@NonNull Exception e) {
                     }
                 });
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                getContext();
+                db.collection("users").document(email).delete();
             }
         });
 
