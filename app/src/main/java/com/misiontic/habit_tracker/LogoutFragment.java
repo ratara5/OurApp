@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -18,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
  * create an instance of this fragment.
  */
 public class LogoutFragment extends Fragment {
+
+    Button btnStay;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,7 +66,20 @@ public class LogoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_logout, container, false);
+        View root= inflater.inflate(R.layout.fragment_logout, container, false);
+
+        btnStay=root.findViewById(R.id.button3);
+
+        btnStay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stay(v);
+            }
+        });
+
+
+        return root;
+
     }
 
     public void exit(View view) {
@@ -79,6 +95,6 @@ public class LogoutFragment extends Fragment {
         //fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, homeFragment);
         //fragmentTransaction.commit();
 
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_container, new HomeFragment()).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.logoutFragment, new HomeFragment()).commit();
     }
 }
