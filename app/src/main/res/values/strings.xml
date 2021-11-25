@@ -68,5 +68,7 @@
     <string name="habit6_dairy">Escribe un diario</string>
     <string name="habit7_floss">Usa ceda dental</string>
     <string name="personalice_habits">Personaliza tus habitos diarios</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_addhabit">Agregar habito</string>
 
 </resources>
