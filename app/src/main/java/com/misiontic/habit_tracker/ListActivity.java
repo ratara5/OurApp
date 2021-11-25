@@ -47,16 +47,56 @@ public class ListActivity extends AppCompatActivity {
         cbFloss = (CheckBox) findViewById(R.id.CBhabito7);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cbWater.isChecked()) {
+                    habits.setWater(Water);
+                    reference.child(String.valueOf(i + 1)).setValue(habits);
+
+                } else {
+
+                }
+                if (cbRead.isChecked()) {
+                    habits.setRead(Read);
+                    reference.child(String.valueOf(i + 1)).setValue(habits);
+                }else{
+
+                }
+                if (cbWakeup.isChecked()) {
+                    habits.setWakeup(Wakeup);
+                    reference.child(String.valueOf(i + 1)).setValue(habits);
+                }else{
+
+                }
+                if (cbPush.isChecked()) {
+                    habits.setPush(Push);
+                    reference.child(String.valueOf(i + 1)).setValue(habits);
+                } else {
+
+                }
+                if (cbLanguage.isChecked()) {
+                    habits.setLanguaje(Languaje);
+                    reference.child(String.valueOf(i + 1)).setValue(habits);
+                }else {
+
+                }
+                if (cbDairy.isChecked()) {
+                    habits.setDairy(Dairy);
+                    reference.child(String.valueOf(i + 1)).setValue(habits);
+                }else {
+
+                }
+                if (cbFloss.isChecked()) {
+                    habits.setFloss(Floss);
+                    reference.child(String.valueOf(i + 1)).setValue(habits);
+                }else{
 
 
-
-
+            }
 
 
         }
-
-
-
+}
 
 
 
@@ -68,5 +108,5 @@ public class ListActivity extends AppCompatActivity {
 
    // extendedFab.setOnClickListener {
         // Respond to Extended FAB click
-    //}
+    }
 }
