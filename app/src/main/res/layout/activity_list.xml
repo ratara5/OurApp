@@ -8,15 +8,15 @@
 
     <LinearLayout
         android:id="@+id/layoutCheckList"
-        android:layout_width="279dp"
-        android:layout_height="335dp"
+        android:layout_width="283dp"
+        android:layout_height="425dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintVertical_bias="0.6">
 
         <CheckBox
             android:id="@+id/CBhabito1Agua"
@@ -59,6 +59,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/habit7_floss" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/add_your_habit1"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="530dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/add_your_habit2" />
+
     </LinearLayout>
 
 
@@ -98,30 +117,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginBottom="108dp"
         android:text="@string/btn_save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnNewHabit"
-        app:layout_constraintHorizontal_bias="0.644"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutCheckList" />
-
-    <Button
-        android:id="@+id/btnNewHabit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="40dp"
-        android:text="@string/btn_addhabit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutCheckList" />
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="642dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
