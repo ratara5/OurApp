@@ -46,7 +46,7 @@
             android:id="@+id/CBhabito5Idioma"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/habit5_newLenguage" />
+            android:text="@string/habit5_newLanguage" />
 
         <CheckBox
             android:id="@+id/CBhabito6Diario"
@@ -61,7 +61,7 @@
             android:text="@string/habit7_floss" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/txtaddhabit1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -71,7 +71,7 @@
             tools:layout_editor_absoluteY="530dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/txtaddhabit2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
