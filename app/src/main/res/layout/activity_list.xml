@@ -65,8 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/add_your_habit1"
             android:inputType="textPersonName"
-            android:text="@string/add_your_habit1"
             tools:layout_editor_absoluteX="64dp"
             tools:layout_editor_absoluteY="530dp" />
 
@@ -75,8 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/add_your_habit2" />
+            android:hint="@string/add_your_habit2"
+            android:inputType="textPersonName" />
 
     </LinearLayout>
 
@@ -117,7 +117,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnguardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_save"

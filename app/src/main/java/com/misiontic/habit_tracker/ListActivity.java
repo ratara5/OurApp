@@ -8,6 +8,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class ListActivity extends AppCompatActivity {
 
     EditText txtHabit1, txtHabit2;
@@ -17,11 +26,15 @@ public class ListActivity extends AppCompatActivity {
     CheckBox cbFloss;
     Button btnSave;
 
+    FirebaseFirestore HabitsDb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        HabitsDb = FirebaseFirestore.getInstance();
 
         txtHabit1 = (EditText) findViewById(R.id.txtaddhabit1);
         txtHabit2 = (EditText) findViewById(R.id.txtaddhabit2;
@@ -33,18 +46,25 @@ public class ListActivity extends AppCompatActivity {
         cbDairy = (CheckBox) findViewById(R.id.CBhabito6Diario);
         cbFloss = (CheckBox) findViewById(R.id.CBhabito7);
 
+        btnSave.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+        }
+
+
+
+
+
 
 
 
     }
 
 
-    public void HabitPreferences(View view){
-
-        CheckBox cbWater = findViewById(R.id.CBhabito1Agua);
-
-
-    }
 
    // extendedFab.setOnClickListener {
         // Respond to Extended FAB click
