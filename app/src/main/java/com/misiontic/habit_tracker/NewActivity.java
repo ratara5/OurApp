@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.misiontic.habit_tracker.db.MySQLiteHelper;
@@ -39,13 +40,32 @@ public class NewActivity extends AppCompatActivity {
         MySQLiteHelper connectionBD=new MySQLiteHelper(this);
         String insertQuery="INSERT INTO habits(name, description, category)" +
                 "VALUES('"+habitName+"','"+habitDescription+"','"+habitCategory+"')";
-        connectionBD.insertData(insertQuery);
+        boolean suc=connectionBD.insertData(insertQuery);
+        if (suc) {
+            Toast.makeText(this,"@string/success_on_save"+" en local",Toast.LENGTH_LONG).show();
+            cleanForm();
+        } else {
+            Toast.makeText(this,"@string/failure_on_save"+" en local",Toast.LENGTH_LONG).show();
+        }
+
 
         //Guardar en CloudFirestore
-        Map<String, Object> habit = new HashMap<>();
-        habit.put("description", habitDescription);
-        habit.put("category", habitCategory);
-        db.collection("habits").document(habitName).set(habit);
+        //Map<String, Object> habit = new HashMap<>();
+        //habit.put("description", habitDescription);
+        //habit.put("category", habitCategory);
+        //db.collection("habits").document(habitName).set(habit);
 
+    }
+
+    public void cleanForm(View view){
+        etHabitName.setText("");
+        etHabitCategory.setText("");
+        etHabitDescription.setText("");
+    }
+
+    public void cleanForm(){ //aplicar Nullable?
+        etHabitName.setText("");
+        etHabitCategory.setText("");
+        etHabitDescription.setText("");
     }
 }

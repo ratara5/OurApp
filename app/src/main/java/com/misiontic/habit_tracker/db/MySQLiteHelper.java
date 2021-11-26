@@ -1,6 +1,7 @@
 package com.misiontic.habit_tracker.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -27,8 +28,22 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertData(String sentence){
-        SQLiteDatabase db= getWritableDatabase();
-        db.execSQL(sentence);
+    public boolean insertData(String sentence){
+        boolean success=false;
+        try {
+            SQLiteDatabase db= getWritableDatabase();
+            db.execSQL(sentence);
+            success=true;
+        } catch (Exception e){
+            success=false;
+        }
+        return success;
+    }
+
+    public Cursor getData(String sentence, String[] params){
+        SQLiteDatabase db=getReadableDatabase();
+        Cursor cu=db.rawQuery(sentence, params);
+        return cu;
+
     }
 }

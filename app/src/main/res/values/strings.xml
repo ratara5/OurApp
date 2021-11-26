@@ -76,6 +76,11 @@
     <string name="edit_text_habit_description">description</string>
     <string name="edit_text_habit_category">category</string>
     <string name="btn_goHabitsForm">Ir a Formulario de hábitos</string>
+    <string name="btn_goHabitsList">Ir a Lista de Hábitos</string>
 
+    <string name="success_on_save">Datos guardados con éxito</string>
+    <string name="failure_on_save">Error en guardado de datos</string>
+
+    <string name="failure_on_get">Error al realizar la consulta</string>
 
 </resources>
