@@ -37,7 +37,7 @@ public class ListActivity extends AppCompatActivity {
         HabitsDb = FirebaseFirestore.getInstance();
 
         txtHabit1 = (EditText) findViewById(R.id.txtaddhabit1);
-        txtHabit2 = (EditText) findViewById(R.id.txtaddhabit2;
+        txtHabit2 = (EditText) findViewById(R.id.txtaddhabit2);
         cbWater = (CheckBox) findViewById(R.id.CBhabito1Agua);
         cbRead = (CheckBox) findViewById(R.id.CBhabito2Libro);
         cbWakeup =(CheckBox) findViewById(R.id.CBhabito3despertarTemprano);
@@ -92,21 +92,11 @@ public class ListActivity extends AppCompatActivity {
                 }else{
 
 
+                }
             }
-
-
-        }
-}
-
-
-
-
-
+        });
     }
-
-
-
    // extendedFab.setOnClickListener {
         // Respond to Extended FAB click
-    }
+    // }
 }
