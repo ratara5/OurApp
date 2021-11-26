@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Habit_Tracker">
         <activity
+            android:name=".HabitListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Habit2Activity"
             android:exported="false" />
         <activity

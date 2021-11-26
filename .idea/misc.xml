@@ -10,6 +10,7 @@
         <entry key="..\:/Users/Juan/Documents/Git/OurApp/app/src/main/res/layout/fragment_tools.xml" value="0.18" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/activity_auth.xml" value="0.25" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/activity_habit2.xml" value="0.18" />
+        <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/activity_habit_list.xml" value="0.14545454545454545" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/activity_habits.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/activity_launch.xml" value="0.25" />
@@ -23,6 +24,7 @@
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/fragment_logout.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/fragment_profile.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/fragment_tools.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/habits_list_row.xml" value="0.17297297297297298" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/layout/layout_navigation_header.xml" value="0.22" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/TabSan/AndroidStudioProjects/OurApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />

@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,7 +78,8 @@ public class HomeFragment extends Fragment {
         btnGoListHabits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Habit2Activity.class);
+                //Intent intent = new Intent(getActivity(), Habit2Activity.class);
+                Intent intent = new Intent(getActivity(), HabitListActivity.class);
                 startActivity(intent);
             }
         });

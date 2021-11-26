@@ -82,5 +82,7 @@
     <string name="failure_on_save">Error en guardado de datos</string>
 
     <string name="failure_on_get">Error al realizar la consulta</string>
+    <string name="habit_name_example">Ejemplo Nombre Hábito</string>
+    <string name="habit_category_example">Ejemplo Categoría Hábito</string>
 
 </resources>
