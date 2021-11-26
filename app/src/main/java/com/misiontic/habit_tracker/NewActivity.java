@@ -6,11 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.misiontic.habit_tracker.db.MySQLiteHelper;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class NewActivity extends AppCompatActivity {
 
     private EditText etHabitName, etHabitDescription, etHabitCategory;
+
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +27,7 @@ public class NewActivity extends AppCompatActivity {
         etHabitDescription=findViewById(R.id.editTextHabitDescription);
         etHabitCategory=findViewById(R.id.editTextHabitCategory);
 
-
-
+        db = FirebaseFirestore.getInstance();
     }
 
     public void saveForm(View view){
@@ -30,10 +35,17 @@ public class NewActivity extends AppCompatActivity {
         String habitDescription=etHabitDescription.getText().toString();
         String habitCategory=etHabitCategory.getText().toString();
 
+        //Guardar en local
         MySQLiteHelper connectionBD=new MySQLiteHelper(this);
         String insertQuery="INSERT INTO habits(name, description, category)" +
                 "VALUES('"+habitName+"','"+habitDescription+"','"+habitCategory+"')";
-
         connectionBD.insertData(insertQuery);
+
+        //Guardar en CloudFirestore
+        Map<String, Object> habit = new HashMap<>();
+        habit.put("description", habitDescription);
+        habit.put("category", habitCategory);
+        db.collection("habits").document(habitName).set(habit);
+
     }
 }
