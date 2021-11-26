@@ -12,8 +12,66 @@
         android:layout_height="wrap_content"
         android:text="Esta es NewActivity"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="top"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:gravity="top">
+
+        <EditText
+            android:id="@+id/editTextHabitName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/edit_text_habit_name"/>
+
+        <EditText
+            android:id="@+id/editTextHabitDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/edit_text_habit_description" />
+
+        <EditText
+            android:id="@+id/editTextHabitCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/edit_text_habit_category"/>
+
+        <Button
+            android:id="@+id/buttonGetHabit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_get" />
+
+        <Button
+            android:id="@+id/buttonSaveHabit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="saveForm"
+            android:text="@string/btn_save" />
+
+        <Button
+            android:id="@+id/buttonDeleteHabit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_delete"
+            android:backgroundTint="@color/secondaryColor"/>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
