@@ -24,9 +24,6 @@
             android:name=".HabitListActivity"
             android:exported="false" />
         <activity
-            android:name=".Habit2Activity"
-            android:exported="false" />
-        <activity
             android:name=".ListActivity"
             android:exported="false" />
         <!--
