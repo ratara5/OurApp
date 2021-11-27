@@ -90,10 +90,23 @@ public class HabitListActivity extends AppCompatActivity {
                 }
             });
             //
-
+            /*
             //Al chequear
-            listView.getCheckedItemPosition();
+            final ArrayList<Habits> todayHabits = new ArrayList<Habits>();
+            final ArrayList<String> indexTodayHabits;
+            for (int i = 0; i < habitList.size(); i++) {
 
+                if(habitList.get(i).isSelected()){
+
+                    // fill the array list ...
+                    todayHabits.add(habitList.get(i));
+
+                }
+            }
+            */
+            // Enviar a TodayHabitsActivity
+            //Intent intentToday=new Intent(HabitListActivity.this, TodayHabitsActivity.class);
+            //intentToday.putIntegerArrayListExtra(todayHabits);
         } catch (Exception e) {
             Toast.makeText(this, "@string/failure_on_get", Toast.LENGTH_LONG).show();
 

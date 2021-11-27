@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Habit_Tracker">
         <activity
+            android:name=".TodayHabitsActivity"
+            android:exported="false" />
+        <activity
             android:name=".HabitListActivity"
             android:exported="false" />
         <!--
@@ -43,7 +46,7 @@
         <activity
             android:name=".NewActivity"
             android:exported="false"
-            android:parentActivityName=".HabitListActivity"/>
+            android:parentActivityName=".HabitListActivity" />
         <activity
             android:name=".HabitsActivity"
             android:exported="false"

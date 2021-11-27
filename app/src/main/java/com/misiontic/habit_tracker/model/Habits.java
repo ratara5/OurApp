@@ -6,6 +6,7 @@ public class Habits {
     private String name;
     private String description;
     private String category;
+    private boolean selected;
 
     public int getId() {
         return id;
@@ -46,5 +47,13 @@ public class Habits {
         this.name = name;
         this.description = description;
         this.category = category;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }
