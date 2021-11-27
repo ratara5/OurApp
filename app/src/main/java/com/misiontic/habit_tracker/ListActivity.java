@@ -8,25 +8,17 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class ListActivity extends AppCompatActivity {
 
-    EditText txtHabit1, txtHabit2;
+    EditText txtHabit8, txtHabit9;
     CheckBox cbWater, cbRead, cbWakeup, cbPush;
     CheckBox cbLanguage;
     CheckBox cbDairy;
     CheckBox cbFloss;
-    Button btnSave;
+    Button btn1Save;
 
-    FirebaseFirestore HabitsDb;
+
 
 
     @Override
@@ -34,69 +26,42 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        HabitsDb = FirebaseFirestore.getInstance();
-
-        txtHabit1 = (EditText) findViewById(R.id.txtaddhabit1);
-        txtHabit2 = (EditText) findViewById(R.id.txtaddhabit2);
-        cbWater = (CheckBox) findViewById(R.id.CBhabito1Agua);
-        cbRead = (CheckBox) findViewById(R.id.CBhabito2Libro);
-        cbWakeup =(CheckBox) findViewById(R.id.CBhabito3despertarTemprano);
-        cbPush = (CheckBox) findViewById(R.id.CBhabito4Flexiones);
-        cbLanguage = (CheckBox)  findViewById(R.id.CBhabito5Idioma);
-        cbDairy = (CheckBox) findViewById(R.id.CBhabito6Diario);
-        cbFloss = (CheckBox) findViewById(R.id.CBhabito7);
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cbWater.isChecked()) {
-                    habits.setWater(Water);
-                    reference.child(String.valueOf(i + 1)).setValue(habits);
-
-                } else {
-
-                }
-                if (cbRead.isChecked()) {
-                    habits.setRead(Read);
-                    reference.child(String.valueOf(i + 1)).setValue(habits);
-                }else{
-
-                }
-                if (cbWakeup.isChecked()) {
-                    habits.setWakeup(Wakeup);
-                    reference.child(String.valueOf(i + 1)).setValue(habits);
-                }else{
-
-                }
-                if (cbPush.isChecked()) {
-                    habits.setPush(Push);
-                    reference.child(String.valueOf(i + 1)).setValue(habits);
-                } else {
-
-                }
-                if (cbLanguage.isChecked()) {
-                    habits.setLanguaje(Languaje);
-                    reference.child(String.valueOf(i + 1)).setValue(habits);
-                }else {
-
-                }
-                if (cbDairy.isChecked()) {
-                    habits.setDairy(Dairy);
-                    reference.child(String.valueOf(i + 1)).setValue(habits);
-                }else {
-
-                }
-                if (cbFloss.isChecked()) {
-                    habits.setFloss(Floss);
-                    reference.child(String.valueOf(i + 1)).setValue(habits);
-                }else{
 
 
-                }
-            }
-        });
+        txtHabit8 = (EditText) findViewById(R.id.txtAddHabit8);
+        txtHabit9 = (EditText) findViewById(R.id.txtAddHabit9);
+        cbWater = (CheckBox) findViewById(R.id.cbHabit1Water);
+        cbRead = (CheckBox) findViewById(R.id.cbHabit2Read);
+        cbWakeup =(CheckBox) findViewById(R.id.cbHabit3Wake);
+        cbPush = (CheckBox) findViewById(R.id.cbHabit4Push);
+        cbLanguage = (CheckBox)  findViewById(R.id.cbHabit5Language);
+        cbDairy = (CheckBox) findViewById(R.id.cbHabit6Dairy);
+        cbFloss = (CheckBox) findViewById(R.id.cbHabit7Floss);
+        btn1Save = (Button) findViewById(R.id.btnSave);
+
+
+               btn1Save.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+
+                   }
+               });
+
+
+
+        }
+
+        public void SaveDate(View view){
+
+        }
+
     }
+
+
+
+
+
+
    // extendedFab.setOnClickListener {
         // Respond to Extended FAB click
     // }
-}
