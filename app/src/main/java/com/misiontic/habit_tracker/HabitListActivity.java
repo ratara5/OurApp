@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -78,6 +79,20 @@ public class HabitListActivity extends AppCompatActivity {
             } while (results.moveToNext());
             adapter = new HabitListViewAdapter(this, habitList);
             listView.setAdapter(adapter);
+
+            //Al tocar
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Habits selectedHabit=(Habits)listView.getItemAtPosition(position);
+                    String descriptionHabit=selectedHabit.getDescription();
+                    //Mostrar en un DialogFragment
+                }
+            });
+            //
+
+            //Al chequear
+            listView.getCheckedItemPosition();
 
         } catch (Exception e) {
             Toast.makeText(this, "@string/failure_on_get", Toast.LENGTH_LONG).show();

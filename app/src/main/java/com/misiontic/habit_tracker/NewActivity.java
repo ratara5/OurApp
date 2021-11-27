@@ -1,7 +1,10 @@
 package com.misiontic.habit_tracker;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +32,14 @@ public class NewActivity extends AppCompatActivity {
         etHabitCategory=findViewById(R.id.editTextHabitCategory);
 
         db = FirebaseFirestore.getInstance();
+
+        Toolbar myChildToolbar =
+                (Toolbar) findViewById(R.id.my_ch_toolbar);
+        setSupportActionBar(myChildToolbar);
+
+        ActionBar ab = getSupportActionBar();
+
+        ab.setDisplayHomeAsUpEnabled(true);
     }
 
     public void saveForm(View view){
@@ -47,7 +58,8 @@ public class NewActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this,"@string/failure_on_save"+" en local",Toast.LENGTH_LONG).show();
         }
-
+        Intent intent=new Intent(NewActivity.this,HabitListActivity.class);
+        startActivity(intent);
 
         //Guardar en CloudFirestore
         //Map<String, Object> habit = new HashMap<>();
