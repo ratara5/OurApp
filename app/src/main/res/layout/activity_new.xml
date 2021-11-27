@@ -23,7 +23,7 @@
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Esta es NewActivity"
+        android:text="@string/tv_save_habit"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,24 +68,12 @@
             android:hint="@string/edit_text_habit_category"/>
 
         <Button
-            android:id="@+id/buttonGetHabit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_get" />
-
-        <Button
             android:id="@+id/buttonSaveHabit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="saveForm"
             android:text="@string/btn_save" />
 
-        <Button
-            android:id="@+id/buttonDeleteHabit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_delete"
-            android:backgroundTint="@color/secondaryColor"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

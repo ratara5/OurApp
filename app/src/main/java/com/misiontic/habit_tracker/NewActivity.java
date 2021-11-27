@@ -47,25 +47,29 @@ public class NewActivity extends AppCompatActivity {
         String habitDescription=etHabitDescription.getText().toString();
         String habitCategory=etHabitCategory.getText().toString();
 
-        //Guardar en local
-        MySQLiteHelper connectionBD=new MySQLiteHelper(this);
-        String insertQuery="INSERT INTO habits(name, description, category)" +
-                "VALUES('"+habitName+"','"+habitDescription+"','"+habitCategory+"')";
-        boolean suc=connectionBD.insertData(insertQuery);
-        if (suc) {
-            Toast.makeText(this,"@string/success_on_save"+" en local",Toast.LENGTH_LONG).show();
-            cleanForm();
-        } else {
-            Toast.makeText(this,"@string/failure_on_save"+" en local",Toast.LENGTH_LONG).show();
-        }
-        Intent intent=new Intent(NewActivity.this,HabitListActivity.class);
-        startActivity(intent);
+        if(!habitName.equals("") && !habitDescription.equals("") && !habitCategory.equals("")) {
+            //Guardar en local
+            MySQLiteHelper connectionBD = new MySQLiteHelper(this);
+            String insertQuery = "INSERT INTO habits(name, description, category)" +
+                    "VALUES('" + habitName + "','" + habitDescription + "','" + habitCategory + "')";
+            boolean suc = connectionBD.insertData(insertQuery);
+            if (suc) {
+                Toast.makeText(this, R.string.success_on_save + " en local", Toast.LENGTH_LONG).show();
+                cleanForm();
+            } else {
+                Toast.makeText(this, R.string.failure_on_save + " en local", Toast.LENGTH_LONG).show();
+            }
+            Intent intent = new Intent(NewActivity.this, HabitListActivity.class);
+            startActivity(intent);
 
-        //Guardar en CloudFirestore
-        //Map<String, Object> habit = new HashMap<>();
-        //habit.put("description", habitDescription);
-        //habit.put("category", habitCategory);
-        //db.collection("habits").document(habitName).set(habit);
+            //Guardar en CloudFirestore
+            //Map<String, Object> habit = new HashMap<>();
+            //habit.put("description", habitDescription);
+            //habit.put("category", habitCategory);
+            //db.collection("habits").document(habitName).set(habit);
+        }else{
+            Toast.makeText(NewActivity.this,R.string.all_fields, Toast.LENGTH_LONG).show();
+        }
 
     }
 
