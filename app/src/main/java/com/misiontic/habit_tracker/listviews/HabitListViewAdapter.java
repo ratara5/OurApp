@@ -13,15 +13,16 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.misiontic.habit_tracker.R;
+import com.misiontic.habit_tracker.model.Habits;
 
 import java.util.ArrayList;
 
-public class HabitListViewAdapter extends ArrayAdapter<String> {
+public class HabitListViewAdapter extends ArrayAdapter<Habits> {
 
-    ArrayList<String> list;
+    ArrayList<Habits> list;
     Context context;
 
-    public HabitListViewAdapter(Context context, ArrayList<String> items) {
+    public HabitListViewAdapter(Context context, ArrayList<Habits> items) {
         super(context, R.layout.habits_list_row, items);
         this.context=context;
         list=items;
@@ -35,7 +36,9 @@ public class HabitListViewAdapter extends ArrayAdapter<String> {
        TextView tvHabitName=convertView.findViewById(R.id.tvName);
        TextView tvCategoryName=convertView.findViewById(R.id.tvCategory);
 
-       tvHabitName.setText(list.get(position));
+
+       tvHabitName.setText(list.get(position).getName());
+       tvCategoryName.setText(list.get(position).getCategory());
 
        return convertView;
 
