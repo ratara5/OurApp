@@ -17,7 +17,7 @@ import android.widget.Button;
  */
 public class HomeFragment extends Fragment {
 
-    Button btnGoFormHabits, btnGoListHabits;
+    Button btnGoListHabits;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,16 +64,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
-        btnGoFormHabits = (Button) view.findViewById(R.id.buttonGoFormHabits);
         btnGoListHabits= (Button) view.findViewById(R.id.buttonGoListHabits);
-
-        btnGoFormHabits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NewActivity.class);
-                startActivity(intent);
-            }
-        });
 
         btnGoListHabits.setOnClickListener(new View.OnClickListener() {
             @Override

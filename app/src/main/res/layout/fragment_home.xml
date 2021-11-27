@@ -24,17 +24,6 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/buttonGoFormHabits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="top"
-            android:text="@string/btn_goHabitsForm" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <Button
             android:id="@+id/buttonGoListHabits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

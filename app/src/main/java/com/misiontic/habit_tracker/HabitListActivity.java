@@ -2,12 +2,16 @@ package com.misiontic.habit_tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.misiontic.habit_tracker.R;
 import com.misiontic.habit_tracker.db.MySQLiteHelper;
 import com.misiontic.habit_tracker.listviews.HabitListViewAdapter;
@@ -20,6 +24,7 @@ public class HabitListActivity extends AppCompatActivity {
     private ArrayList<Habits> habitList;
     private static ListView listView;
     private static HabitListViewAdapter adapter;
+    private FloatingActionButton fabAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,15 @@ public class HabitListActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.habitsList);
         habitList = new ArrayList<>();
+
+        fabAdd=findViewById(R.id.floatingActionButton);
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HabitListActivity.this, NewActivity.class);
+                startActivity(intent);
+            }
+        });
 
         showHabits();
     }
