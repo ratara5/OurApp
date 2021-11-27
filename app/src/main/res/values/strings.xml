@@ -91,5 +91,11 @@
     <string name="text_view_aboutus">Esto es Sobre Nosotros</string>
     <string name="all_fields">Aségurate de rellenar TODOS los campos</string>
     <string name="tv_save_habit">Guarda tu hábito personalizado</string>
+    <string name="about_our">Habit Tracker es una app pensada para que cada uno de nuestros
+    usuarios adopten hábitos de vida saludables, dadas las multiples funciones que se encuentran en
+        la app. Sus creadores, son la segunda generación de tripulantes de Misión TIC; quienes
+        ofrecen una aplicación totalmente funcional, gratuita y abierta al público.
+
+    </string>
 
 </resources>
