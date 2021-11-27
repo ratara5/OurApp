@@ -31,9 +31,6 @@
         android:icon="@drawable/ic_settings"
         android:title="@string/icon_settings"/>
 
-    <item android:id="@+id/menuSupport"
-        android:title="@string/support"/>
-
     <item
         android:id="@+id/menuLogout"
         android:title="@string/logout"
