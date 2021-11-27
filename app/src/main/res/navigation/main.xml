@@ -29,5 +29,11 @@
         android:label="fragment_logout"
         tools:layout="@layout/fragment_logout" />
 
+    <fragment
+        android:id="@+id/menuAboutUs"
+        android:name="com.misiontic.habit_tracker.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+
 
 </navigation>
