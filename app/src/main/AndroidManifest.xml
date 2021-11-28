@@ -55,7 +55,6 @@
             android:name=".LaunchActivity"
             android:exported="true">
 
-            <!-- Se había movido el siguiente bloque a AuthActivity para que login FB funcione(?) 08112021 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -67,17 +66,7 @@
             android:exported="false" />
         <activity
             android:name=".AuthActivity"
-            android:exported="true">
-
-            <!-- Esta activity se definió como la app de enlaces profundos en FB 08112021 -->
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
