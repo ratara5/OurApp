@@ -2,34 +2,35 @@ package com.misiontic.habit_tracker;
 
 import static android.media.CamcorderProfile.get;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-//import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.misiontic.habit_tracker.R;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.misiontic.habit_tracker.db.MySQLiteHelper;
 import com.misiontic.habit_tracker.listviews.HabitListViewAdapter;
 import com.misiontic.habit_tracker.model.Habits;
-import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
+
+//import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HabitListActivity extends AppCompatActivity {
 
     private static ArrayList<Habits> habitList;
     private static ListView listView;
-    private static HabitListViewAdapter adapter, adapter2;
+    private static HabitListViewAdapter adapter;
     //private FloatingActionButton fabCreate;
     private FloatingActionButton fabCreate;
 
@@ -62,16 +63,7 @@ public class HabitListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Habits selectedHabit=(Habits)listView.getItemAtPosition(position);
                 //Mostrar en un DialogFragment
-                AlertDialog.Builder dialog1=new AlertDialog.Builder(HabitListActivity.this);
-                dialog1.setTitle("Descripción del hábito "+selectedHabit.getName()+": ");
-                dialog1.setMessage(selectedHabit.getDescription());
-                dialog1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                dialog1.show();
+                dialog(selectedHabit);
             }
         });
 
@@ -111,6 +103,7 @@ public class HabitListActivity extends AppCompatActivity {
     }
 
     public ListView adapterHabits(ArrayList habitList) {
+
         try {
             adapter = new HabitListViewAdapter(this, habitList);
             listView.setAdapter(adapter);
@@ -118,6 +111,22 @@ public class HabitListActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.failure_on_get, Toast.LENGTH_LONG).show();
         }
         return listView;
+
     }
+
+    public void dialog(Habits selectedHabit) {
+        AlertDialog.Builder dialog1 = new AlertDialog.Builder(HabitListActivity.this);
+        dialog1.setTitle("Descripción del hábito " + selectedHabit.getName() + ": ");
+        dialog1.setMessage(selectedHabit.getDescription());
+        dialog1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        dialog1.create();
+        dialog1.show();
+    }
+
 
 }
