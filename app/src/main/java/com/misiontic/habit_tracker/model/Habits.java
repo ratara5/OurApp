@@ -8,6 +8,13 @@ public class Habits {
     private String category;
     private boolean selected;
 
+    public Habits(String name, String description, String category) {
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        selected=false;
+    }
+
     public int getId() {
         return id;
     }
@@ -37,15 +44,6 @@ public class Habits {
     }
 
     public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Habits() {
-    }
-
-    public Habits(String name, String description, String category) {
-        this.name = name;
-        this.description = description;
         this.category = category;
     }
 

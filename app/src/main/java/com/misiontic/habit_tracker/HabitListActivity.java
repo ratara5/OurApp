@@ -1,7 +1,11 @@
 package com.misiontic.habit_tracker;
 
+import static android.media.CamcorderProfile.get;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -23,9 +27,9 @@ import java.util.ArrayList;
 
 public class HabitListActivity extends AppCompatActivity {
 
-    private ArrayList<Habits> habitList;
+    private static ArrayList<Habits> habitList;
     private static ListView listView;
-    private static HabitListViewAdapter adapter;
+    private static HabitListViewAdapter adapter, adapter2;
     //private FloatingActionButton fabCreate;
     private FloatingActionButton fabCreate;
 
@@ -46,73 +50,74 @@ public class HabitListActivity extends AppCompatActivity {
             }
         });
 
-        showHabits();
+        //Cursor ...a... listview
+        Cursor results=getHabitsBd();
+        habitList=getHabitList(results);
+        listView=adapterHabits(habitList);
+        results.close();
+
+        //Al tocar
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Habits selectedHabit=(Habits)listView.getItemAtPosition(position);
+                //Mostrar en un DialogFragment
+                AlertDialog.Builder dialog1=new AlertDialog.Builder(HabitListActivity.this);
+                dialog1.setTitle("Descripción del hábito "+selectedHabit.getName()+": ");
+                dialog1.setMessage(selectedHabit.getDescription());
+                dialog1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                dialog1.show();
+            }
+        });
+
+        //Al chequear
+        final ArrayList<Habits> todayHabits = new ArrayList<Habits>();
+        for (int i = 0; i < habitList.size(); i++) {
+            if(habitList.get(i).isSelected()){
+                habitList.remove(get(i));
+            }
+        }
+        adapter.notifyDataSetChanged();
     }
 
-    public void showHabits() {
-        int id;
-        String nameHabit, descriptionHabit, categoryHabit;
-
+    public Cursor getHabitsBd(){
         MySQLiteHelper connectionBD = new MySQLiteHelper(this);
         String selectQuery = "SELECT * FROM habits";
-
         Cursor results = connectionBD.getData(selectQuery, null);
+        return results;
+    }
 
+    public ArrayList<Habits> getHabitList(Cursor results) {
+        results.moveToFirst();
+        do {
+            int id = results.getInt(0);
+            int nameId = results.getColumnIndex("name");
+            String nameHabit = results.getString(nameId);
+            String descriptionHabit = results.getString(2);
+            String categoryHabit = results.getString(3);
+
+            Habits newHabit=new Habits(nameHabit,descriptionHabit,categoryHabit);
+            newHabit.setId(id);
+
+            habitList.add(newHabit);
+
+        } while (results.moveToNext());
+        return habitList;
+    }
+
+    public ListView adapterHabits(ArrayList habitList) {
         try {
-            results.moveToFirst();
-            do {
-                id = results.getInt(0);
-                int nameId = results.getColumnIndex("name");
-                nameHabit = results.getString(nameId);
-                descriptionHabit = results.getString(2);
-                categoryHabit = results.getString(3);
-
-                Habits newHabit=new Habits(nameHabit,descriptionHabit,categoryHabit);
-                newHabit.setId(id);
-                //String s = id + " - " + nameHabit + " - " + descriptionHabit + " - " + categoryHabit;
-                //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
-
-                //lista
-                habitList.add(newHabit);
-                //
-
-            } while (results.moveToNext());
             adapter = new HabitListViewAdapter(this, habitList);
             listView.setAdapter(adapter);
-
-            //Al tocar
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Habits selectedHabit=(Habits)listView.getItemAtPosition(position);
-                    String descriptionHabit=selectedHabit.getDescription();
-                    //Mostrar en un DialogFragment
-                }
-            });
-            //
-            /*
-            //Al chequear
-            final ArrayList<Habits> todayHabits = new ArrayList<Habits>();
-            final ArrayList<String> indexTodayHabits;
-            for (int i = 0; i < habitList.size(); i++) {
-
-                if(habitList.get(i).isSelected()){
-
-                    // fill the array list ...
-                    todayHabits.add(habitList.get(i));
-
-                }
-            }
-            */
-            // Enviar a TodayHabitsActivity
-            //Intent intentToday=new Intent(HabitListActivity.this, TodayHabitsActivity.class);
-            //intentToday.putIntegerArrayListExtra(todayHabits);
         } catch (Exception e) {
-            Toast.makeText(this, "@string/failure_on_get", Toast.LENGTH_LONG).show();
-
-        } finally {
-            results.close();
+            Toast.makeText(this, R.string.failure_on_get, Toast.LENGTH_LONG).show();
         }
-
+        return listView;
     }
+
 }

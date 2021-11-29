@@ -35,37 +35,38 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits> {
         protected CheckBox cbHabit;
     }
 
+    @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
         View view=null;
-       if(convertView==null){
-           LayoutInflater mInflater=(LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-           view=mInflater.inflate(R.layout.habits_list_row, null);
+        if(convertView==null){
+            LayoutInflater mInflater=(LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            view=mInflater.inflate(R.layout.habits_list_row, null);
 
-           final ViewHolder viewHolder = new ViewHolder();
-           viewHolder.tvHabitName=(TextView) view.findViewById(R.id.tvName);
-           viewHolder.tvHabitCategory=(TextView) view.findViewById(R.id.tvCategory);
-           viewHolder.cbHabit=(CheckBox) view.findViewById(R.id.cbHabit);
+            final ViewHolder viewHolder = new ViewHolder();
+            viewHolder.tvHabitName=(TextView) view.findViewById(R.id.tvName);
+            viewHolder.tvHabitCategory=(TextView) view.findViewById(R.id.tvCategory);
+            viewHolder.cbHabit=(CheckBox) view.findViewById(R.id.cbHabit);
 
-           viewHolder.cbHabit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-               @Override
-               public void onCheckedChanged(CompoundButton buttonView,
-                                            boolean isChecked) {
-                   Habits element = (Habits) viewHolder.cbHabit.getTag();
-                   element.setSelected(buttonView.isChecked());
+            viewHolder.cbHabit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView,
+                                             boolean isChecked) {
+                    Habits element = (Habits) viewHolder.cbHabit.getTag();
+                    element.setSelected(buttonView.isChecked());
 
-               }
-           });
+                }
+            });
             view.setTag(viewHolder);
             viewHolder.cbHabit.setTag(list.get(position));
-       } else {
+        } else {
             view = convertView;
-           ((ViewHolder) view.getTag()).cbHabit.setTag(list.get(position));
-       }
+            ((ViewHolder) view.getTag()).cbHabit.setTag(list.get(position));
+        }
 
-       ViewHolder holder = (ViewHolder) view.getTag();
-       holder.tvHabitName.setText(list.get(position).getName());
-       holder.tvHabitCategory.setText(list.get(position).getCategory());
-       holder.cbHabit.setChecked(list.get(position).isSelected());
+        ViewHolder holder = (ViewHolder) view.getTag();
+        holder.tvHabitName.setText(list.get(position).getName());
+        holder.tvHabitCategory.setText(list.get(position).getCategory());
+        holder.cbHabit.setChecked(list.get(position).isSelected());
 
         return view;
     }
