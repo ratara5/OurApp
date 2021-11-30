@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +20,7 @@ import com.misiontic.habit_tracker.model.Habits;
 
 import java.util.ArrayList;
 
-public class HabitListViewAdapter extends ArrayAdapter<Habits> {
+public class HabitListViewAdapter extends ArrayAdapter<Habits>{
 
     ArrayList<Habits> list;
     Context context;
@@ -32,7 +33,8 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits> {
 
     static class ViewHolder {
         protected TextView tvHabitName,tvHabitCategory;
-        //protected CheckBox cbHabit;
+        protected CheckBox cbHabit;
+
     }
 
     @Override
@@ -45,8 +47,9 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits> {
             final ViewHolder viewHolder = new ViewHolder();
             viewHolder.tvHabitName=(TextView) view.findViewById(R.id.tvName);
             viewHolder.tvHabitCategory=(TextView) view.findViewById(R.id.tvCategory);
-            //viewHolder.cbHabit=(CheckBox) view.findViewById(R.id.cbHabit);
-            /*
+
+            viewHolder.cbHabit=(CheckBox) view.findViewById(R.id.cbHabit);
+
             viewHolder.cbHabit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView,
@@ -56,18 +59,22 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits> {
 
                 }
             });
-            */
+
             view.setTag(viewHolder);
-            //viewHolder.cbHabit.setTag(list.get(position));
+
+            viewHolder.cbHabit.setTag(list.get(position));
+
         } else {
             view = convertView;
-            //((ViewHolder) view.getTag()).cbHabit.setTag(list.get(position));
+            ((ViewHolder) view.getTag()).cbHabit.setTag(list.get(position));
         }
 
         ViewHolder holder = (ViewHolder) view.getTag();
         holder.tvHabitName.setText(list.get(position).getName());
         holder.tvHabitCategory.setText(list.get(position).getCategory());
-        //holder.cbHabit.setChecked(list.get(position).isSelected());
+        holder.cbHabit.setChecked(list.get(position).isSelected());
+
+
 
         return view;
     }

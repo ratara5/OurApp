@@ -68,15 +68,14 @@ public class HabitListActivity extends AppCompatActivity {
         });
 
         //Al chequear
-        /*
         final ArrayList<Habits> todayHabits = new ArrayList<Habits>();
         for (int i = 0; i < habitList.size(); i++) {
             if(habitList.get(i).isSelected()){
+                Toast.makeText(HabitListActivity.this, "Se remueve el elemento "+habitList.get(i).getName(), Toast.LENGTH_SHORT).show();
                 habitList.remove(get(i));
             }
         }
         adapter.notifyDataSetChanged();
-        */
     }
 
     public Cursor getHabitsBd(){
