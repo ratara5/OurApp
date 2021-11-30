@@ -25,6 +25,7 @@ public class HabitsActivity extends AppCompatActivity {
     int pos = 0;
     private Button btnTouchAction;
     private CheckBox cbHabit4Push, checkBox2, checkBox3;
+    private int[] selectedTopic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +49,23 @@ public class HabitsActivity extends AppCompatActivity {
                 if(cbHabit4Push.isChecked()){
                     checkBox3.setEnabled(false);
                     checkBox2.setEnabled(false);
-                    textContenedorNumero.setText(""+EASY[0]);
-                    ejecutarRutina(EASY);
-                    pos=0;
+                    selectedTopic = EASY;
+                    callAction();
                 }else{
                     checkBox3.setEnabled(true);
                     checkBox2.setEnabled(true);
                 }
+                if(checkBox3.isChecked()){
+                    cbHabit4Push.setEnabled(false);
+                    checkBox2.setEnabled(false);
+                    selectedTopic = MEDIO;
+                    callAction();
+                }else{
+                    cbHabit4Push.setEnabled(true);
+                    checkBox2.setEnabled(true);
+                }
+
+
 
                 Log.i("ESTAD0", "onClick: "+ cbHabit4Push.isChecked());
             }
@@ -62,6 +73,12 @@ public class HabitsActivity extends AppCompatActivity {
         cbHabit4Push.setChecked(true);
         Toast.makeText(getApplicationContext(), "Checkeado",Toast.LENGTH_LONG);
 
+    }
+
+    private void callAction() {
+        textContenedorNumero.setText(""+selectedTopic[0]);
+        ejecutarRutina(selectedTopic);
+        pos=0;
     }
 
 
