@@ -24,6 +24,7 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits>{
 
     ArrayList<Habits> list;
     Context context;
+    private CheckBoxCheckedListener checkedListener;
 
     public HabitListViewAdapter(Context context, ArrayList<Habits> items) {
         super(context, R.layout.habits_list_row, items);
@@ -49,16 +50,10 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits>{
             viewHolder.tvHabitCategory=(TextView) view.findViewById(R.id.tvCategory);
 
             viewHolder.cbHabit=(CheckBox) view.findViewById(R.id.cbHabit);
+            //
+            //Cortado el OnCheckedChanged y es ViewHolder. en vez de holder.
+            //
 
-            viewHolder.cbHabit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView,
-                                             boolean isChecked) {
-                    Habits element = (Habits) viewHolder.cbHabit.getTag();
-                    element.setSelected(buttonView.isChecked());
-                    Toast.makeText(getContext(), "Chequeaste el hábito "+element.getName(), Toast.LENGTH_SHORT).show();
-                }
-            });
 
             view.setTag(viewHolder);
 
@@ -73,9 +68,26 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits>{
         holder.tvHabitName.setText(list.get(position).getName());
         holder.tvHabitCategory.setText(list.get(position).getCategory());
         holder.cbHabit.setChecked(list.get(position).isSelected());
+        holder.cbHabit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                //Habits element = (Habits) viewHolder.cbHabit.getTag();
+                if(checkedListener!=null){
+                    checkedListener.getCheckBoxCheckedListener(position);
 
+                }
+            }
 
+        });
 
         return view;
+    }
+
+    public interface CheckBoxCheckedListener{
+        void getCheckBoxCheckedListener (int position);
+    }
+    public void setCheckedlistener(CheckBoxCheckedListener checkedListener){
+        this.checkedListener=checkedListener;
     }
 }

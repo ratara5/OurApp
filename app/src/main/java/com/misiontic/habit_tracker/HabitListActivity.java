@@ -26,7 +26,7 @@ import java.util.List;
 
 //import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class HabitListActivity extends AppCompatActivity {
+public class HabitListActivity extends AppCompatActivity implements HabitListViewAdapter.CheckBoxCheckedListener  {
 
     private static ArrayList<Habits> habitList;
     private static ListView listView;
@@ -68,7 +68,7 @@ public class HabitListActivity extends AppCompatActivity {
         });
 
         //Al chequear
-        final ArrayList<Habits> todayHabits = new ArrayList<Habits>();
+        /*
         for (int i = 0; i < habitList.size(); i++) {
             if(habitList.get(i).isSelected()){
                 Toast.makeText(HabitListActivity.this, "Se remueve el elemento "+habitList.get(i).getName(), Toast.LENGTH_SHORT).show();
@@ -76,6 +76,8 @@ public class HabitListActivity extends AppCompatActivity {
             }
         }
         adapter.notifyDataSetChanged();
+        */
+        adapter.setCheckedlistener(this);
     }
 
     public Cursor getHabitsBd(){
@@ -130,4 +132,11 @@ public class HabitListActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void getCheckBoxCheckedListener(int position) {
+        Habits checkedHabit=(Habits)listView.getItemAtPosition(position);
+        Toast.makeText(getApplicationContext(),"Has marcado "+checkedHabit.getName()+"?",Toast.LENGTH_LONG).show();
+        habitList.remove(position);
+        adapter.notifyDataSetChanged();
+    }
 }
