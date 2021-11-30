@@ -1,5 +1,6 @@
 package com.misiontic.habit_tracker.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -45,5 +46,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Cursor cu=db.rawQuery(sentence, params);
         return cu;
 
+    }
+
+    public int deleteData(String table, String whereClause, String[] params) {
+        SQLiteDatabase db = getWritableDatabase();
+        int nRows = db.delete(table, whereClause, params);
+        return nRows;
+    }
+
+    public int updateData(String table, ContentValues cv, String whereClause, String[] params) {
+        SQLiteDatabase db = getWritableDatabase();
+        int nRows = db.update(table, cv, whereClause, params);
+        return  nRows;
     }
 }
