@@ -56,7 +56,7 @@ public class HabitListViewAdapter extends ArrayAdapter<Habits>{
                                              boolean isChecked) {
                     Habits element = (Habits) viewHolder.cbHabit.getTag();
                     element.setSelected(buttonView.isChecked());
-
+                    Toast.makeText(getContext(), "Chequeaste el hábito "+element.getName(), Toast.LENGTH_SHORT).show();
                 }
             });
 
