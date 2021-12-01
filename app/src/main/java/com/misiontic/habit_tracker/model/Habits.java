@@ -1,6 +1,9 @@
 package com.misiontic.habit_tracker.model;
 
-public class Habits {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Habits implements Parcelable {
 
     private int id;
     private String name;
@@ -54,4 +57,37 @@ public class Habits {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
+
+    //Hacer parcelable
+    private Habits(Parcel in) {
+        name = in.readString();
+        description = in.readString();
+        category=in.readString();
+    }
+
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return name + " ("+category+"): " + description;
+    }
+
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeString(name);
+        out.writeString(category);
+        out.writeString(description);
+    }
+
+    public static final Parcelable.Creator<Habits> CREATOR = new Parcelable.Creator<Habits>() {
+        public Habits createFromParcel(Parcel in) {
+            return new Habits(in);
+        }
+
+        public Habits[] newArray(int size) {
+            return new Habits[size];
+        }
+    };
+    //
 }
