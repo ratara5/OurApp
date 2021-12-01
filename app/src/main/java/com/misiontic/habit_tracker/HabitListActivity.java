@@ -4,8 +4,10 @@ import static android.media.CamcorderProfile.get;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,14 +23,17 @@ import com.misiontic.habit_tracker.db.MySQLiteHelper;
 import com.misiontic.habit_tracker.listviews.HabitListViewAdapter;
 import com.misiontic.habit_tracker.model.Habits;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+
 //import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class HabitListActivity extends AppCompatActivity implements HabitListViewAdapter.CheckBoxCheckedListener  {
+public class HabitListActivity extends AppCompatActivity implements HabitListViewAdapter.CheckBoxCheckedListener{
 
-    private static ArrayList<Habits> habitList;
+    private static ArrayList<Habits> habitList, todayHabitList;
     private static ListView listView;
     private static HabitListViewAdapter adapter;
     //private FloatingActionButton fabCreate;
@@ -41,6 +46,7 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
         listView = findViewById(R.id.habitsList);
         habitList = new ArrayList<>();
+        todayHabitList=new ArrayList<>();
 
         fabCreate=findViewById(R.id.fabCreate);
         fabCreate.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +56,9 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
                 startActivity(intent);
             }
         });
+
+        //Traer todayHabitListErase para eliminar los habitlist que ya se habían enviado a todayHabitActivity
+
 
         //Cursor ...a... listview
         Cursor results=getHabitsBd();
@@ -129,14 +138,32 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         });
         dialog1.create();
         dialog1.show();
+        //se puede eliminar desde aquí?
     }
 
 
     @Override
     public void getCheckBoxCheckedListener(int position) {
         Habits checkedHabit=(Habits)listView.getItemAtPosition(position);
-        Toast.makeText(getApplicationContext(),"Has marcado "+checkedHabit.getName()+"?",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"Has marcado "+checkedHabit.getName()+"?",Toast.LENGTH_LONG).show();
         habitList.remove(position);
+        todayHabitList.add(checkedHabit);
         adapter.notifyDataSetChanged();
+        //Enviar normal
+        int checkedHabitId=checkedHabit.getId();
+        Intent intentToday=new Intent(HabitListActivity.this,TodayHabitsActivity.class);
+        intentToday.putExtra("checkedHabitId",checkedHabitId);
+        startActivity(intentToday);
+        //Enviar con serializable
+        /*
+        Intent intentToday=new Intent(HabitListActivity.this,TodayHabitsActivity.class);
+        intentToday.putStringArrayListExtra("today", ArrayList<Habits>todayHabitList);
+        */
+        //Enviar con bundle
+        /*
+        Bundle value= new Bundle();
+        value.putParcelableArrayList("temp", todayHabitList);
+        */
+
     }
 }
