@@ -20,7 +20,7 @@ public class NewActivity extends AppCompatActivity {
 
     private EditText etHabitName, etHabitDescription, etHabitCategory;
 
-    private FirebaseFirestore db;
+    private FirebaseFirestore dbF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class NewActivity extends AppCompatActivity {
         etHabitDescription=findViewById(R.id.editTextHabitDescription);
         etHabitCategory=findViewById(R.id.editTextHabitCategory);
 
-        db = FirebaseFirestore.getInstance();
+        dbF = FirebaseFirestore.getInstance();
 
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.my_ch_toolbar);
