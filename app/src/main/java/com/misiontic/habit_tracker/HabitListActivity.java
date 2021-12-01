@@ -24,8 +24,12 @@ import com.misiontic.habit_tracker.listviews.HabitListViewAdapter;
 import com.misiontic.habit_tracker.model.Habits;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import com.google.gson.Gson;
 
@@ -151,9 +155,11 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         adapter.notifyDataSetChanged();
         //Enviar normal
         int checkedHabitId=checkedHabit.getId();
+        /*
         Intent intentToday=new Intent(HabitListActivity.this,TodayHabitsActivity.class);
         intentToday.putExtra("checkedHabitId",checkedHabitId);
         startActivity(intentToday);
+        */
         //Enviar con serializable
         /*
         Intent intentToday=new Intent(HabitListActivity.this,TodayHabitsActivity.class);
@@ -164,6 +170,21 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         Bundle value= new Bundle();
         value.putParcelableArrayList("temp", todayHabitList);
         */
+        //Enviar con bd
+        MySQLiteHelper connectionBD = new MySQLiteHelper(this);
+
+
+        String now = Calendar.getInstance().getTime().toString();
+
+        String insertQuery = "INSERT INTO dates(date, id_habit )" +
+                "VALUES('" + now + "','" + checkedHabitId +"')";
+
+        boolean suc = connectionBD.insertData(insertQuery);
+        if (suc) {
+            Toast.makeText(this, R.string.success_on_save + " en local", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, R.string.failure_on_save + " en local", Toast.LENGTH_LONG).show();
+        }
 
     }
 }
