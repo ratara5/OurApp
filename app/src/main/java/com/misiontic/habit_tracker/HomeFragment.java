@@ -17,7 +17,7 @@ import android.widget.Button;
  */
 public class HomeFragment extends Fragment {
 
-    Button btnGoListHabits;
+    Button btnGoListHabits, btnGoTodayHabits;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,6 +65,7 @@ public class HomeFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
         btnGoListHabits= (Button) view.findViewById(R.id.buttonGoListHabits);
+        btnGoTodayHabits=(Button)view.findViewById(R.id.buttonGoTodayHabits);
 
         btnGoListHabits.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,15 @@ public class HomeFragment extends Fragment {
                 //Intent intent = new Intent(getActivity(), Habit2Activity.class);
                 Intent intent = new Intent(getActivity(), HabitListActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnGoTodayHabits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(getActivity(), Habit2Activity.class);
+                Intent intent2 = new Intent(getActivity(), TodayHabitsActivity.class);
+                startActivity(intent2);
             }
         });
 
