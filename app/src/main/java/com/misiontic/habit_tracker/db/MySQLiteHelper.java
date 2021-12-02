@@ -48,7 +48,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    //Básico una sola tabla
+    //Básico la sentencia preescrita
     /*
     private static final String HABITS_TABLE_CREATE="CREATE TABLE habits(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                                     "name TEXT, description TEXT, category TEXT)";
@@ -69,19 +69,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 DatesHabits.ColumnsDates.DATE,
                 DatesHabits.ColumnsDates.ID_HABIT,References.ID_HABIT));
         */
+        //Básico una sola sentencia
         db.execSQL("CREATE TABLE habits(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, description TEXT, category TEXT)");
         db.execSQL("CREATE TABLE dates(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "date DATETIME, id_habit INTEGER)");
     }
 
-    //Básico una sola tabla
-    /*
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(HABITS_TABLE_CREATE);
-    }
-    */
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

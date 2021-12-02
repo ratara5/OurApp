@@ -15,8 +15,10 @@ import com.misiontic.habit_tracker.db.MySQLiteHelper;
 import com.misiontic.habit_tracker.listviews.HabitListViewAdapter;
 import com.misiontic.habit_tracker.model.Habits;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -53,25 +55,26 @@ public class TodayHabitsActivity extends AppCompatActivity {
         */
         // Obtener con bd
 
-        connectionBD = new MySQLiteHelper(this);
+        MySQLiteHelper connectionBD = new MySQLiteHelper(this);
         String sentence = "SELECT * FROM dates WHERE date = ?";
-        String now = Calendar.getInstance().getTime().toString();
-        String[] params = new String[]{String.valueOf(now)};
+        String today = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        String[] params = new String[]{String.valueOf(today)};
         Cursor results = connectionBD.getData(sentence, params);
 
         results.moveToFirst();
         do {
             int id = results.getInt(0);
-            int dateId = results.getColumnIndex("name");
+            int dateId = results.getColumnIndex("date");
             String date = results.getString(dateId);
             int id_habit = results.getInt(2);
 
 
-            todayHabitsList.add(date+" - "+String.valueOf(id_habit));
+            todayHabitsList.add(String.valueOf(id)+" - "+date+" - "+String.valueOf(id_habit));
 
         } while (results.moveToNext());
+        results.close();
 
-        adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, todayHabitsList);
+        adapter2 = new ArrayAdapter(this, android.R.layout.simple_list_item_1, todayHabitsList);
         //adapter2.notifyDataSetChanged();
         listView2.setAdapter(adapter2);
 

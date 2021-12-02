@@ -37,7 +37,7 @@ import com.google.gson.Gson;
 
 public class HabitListActivity extends AppCompatActivity implements HabitListViewAdapter.CheckBoxCheckedListener{
 
-    private static ArrayList<Habits> habitList, todayHabitList;
+    private static ArrayList<Habits> habitList;
     private static ListView listView;
     private static HabitListViewAdapter adapter;
     //private FloatingActionButton fabCreate;
@@ -50,7 +50,6 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
         listView = findViewById(R.id.habitsList);
         habitList = new ArrayList<>();
-        todayHabitList=new ArrayList<>();
 
         fabCreate=findViewById(R.id.fabCreate);
         fabCreate.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +150,6 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         Habits checkedHabit=(Habits)listView.getItemAtPosition(position);
         //Toast.makeText(getApplicationContext(),"Has marcado "+checkedHabit.getName()+"?",Toast.LENGTH_LONG).show();
         habitList.remove(position);
-        todayHabitList.add(checkedHabit);
         adapter.notifyDataSetChanged();
         //Enviar normal
         int checkedHabitId=checkedHabit.getId();
@@ -174,10 +172,19 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         MySQLiteHelper connectionBD = new MySQLiteHelper(this);
 
 
-        String now = Calendar.getInstance().getTime().toString();
+        //String now = Calendar.getInstance().getTime().toString();
+
+        /*
+        Calendar now = Calendar.getInstance();
+        String DATE_FORMAT_NOW = "yyyy-MM-dd";
+        SimpleDateFormat today = new SimpleDateFormat(DATE_FORMAT_NOW);
+        String.valueOf(today.format(now.getTime()));
+         */
+
+        String today = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 
         String insertQuery = "INSERT INTO dates(date, id_habit )" +
-                "VALUES('" + now + "','" + checkedHabitId +"')";
+                "VALUES('" + today + "','" + checkedHabitId +"')";
 
         boolean suc = connectionBD.insertData(insertQuery);
         if (suc) {
