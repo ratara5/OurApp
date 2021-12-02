@@ -100,5 +100,6 @@
 
     </string>
     <string name="btn_goTodayHabits">Ir a Hábitos Cumplidos Hoy</string>
+    <string name="Home_message">Con nuestra app podrás llevar registro de tus hábitos...¡la forma más sencilla de motivarte a continuar!</string>
 
 </resources>
