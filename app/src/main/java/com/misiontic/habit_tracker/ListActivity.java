@@ -2,6 +2,7 @@ package com.misiontic.habit_tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -96,7 +97,10 @@ public class ListActivity extends AppCompatActivity {
             }
         });
     }
-   // extendedFab.setOnClickListener {
-        // Respond to Extended FAB click
-    // }
+
+    public void goToDaily(View view){
+        Intent intentDaily = new Intent(this, DailyTrackerActivity.class);
+        startActivity(intentDaily);
+
+    }
 }
