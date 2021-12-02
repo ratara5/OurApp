@@ -29,7 +29,7 @@
             android:id="@+id/buttonGoListHabits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="top"
+            android:gravity="center_horizontal"
             android:text="@string/btn_goHabitsList" />
 
         <Space
@@ -40,8 +40,9 @@
             android:id="@+id/buttonGoTodayHabits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="top"
-            android:text="@string/btn_goTodayHabits" />
+            android:gravity="center_horizontal"
+            android:text="@string/btn_goTodayHabits"
+            />
 
         <Space
             android:layout_width="match_parent"
@@ -51,11 +52,10 @@
             android:id="@+id/buttonGoAddHabits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="top"
-            android:text="Añadir habitos a BD" />
+            android:gravity="center_horizontal"
+            android:text="@string/btn_addHabitsToDB" />
 
     </LinearLayout>
-
 
 
 </FrameLayout>
