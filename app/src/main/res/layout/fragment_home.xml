@@ -3,23 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
+        android:layout_gravity="center_horizontal"
         android:text="@string/text_view_home"
-        android:textSize="24sp"/>
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical">
 
@@ -28,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:text="@string/btn_goHabitsList"  />
+            android:text="@string/btn_goHabitsList" />
 
         <Space
             android:layout_width="match_parent"
@@ -39,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:text="@string/btn_goTodayHabits"  />
+            android:text="@string/btn_goTodayHabits" />
 
         <Space
             android:layout_width="match_parent"
@@ -50,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:text="Añadir habitos a BD"  />
+            android:text="Añadir habitos a BD" />
 
     </LinearLayout>
 

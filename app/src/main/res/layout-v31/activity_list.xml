@@ -40,7 +40,7 @@
             android:id="@+id/CBhabito4Flexiones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/habit4_pushups" />
+            android:text="@string/habit4_push" />
 
         <CheckBox
             android:id="@+id/CBhabito5Idioma"
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/add_your_habit1"
+            android:hint="@string/add_your_habit"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="64dp"
             tools:layout_editor_absoluteY="530dp" />
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/add_your_habit2"
+            android:hint="@string/add_your_habit"
             android:inputType="textPersonName" />
 
     </LinearLayout>
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/comfortaa_bold"
-            android:text="@string/personalice_habits"
+            android:text="@string/personalize_habits"
             android:textAlignment="center"
             android:textColor="@color/secondaryTextColor"
             android:textSize="34sp" />

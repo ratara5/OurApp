@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Habit_Tracker</string>
+    <string name="app_name">Habit Tracker</string>
+
 
     <string name="edit_text_email">e-mail</string>
     <string name="edit_text_password">Contraseña</string>
@@ -33,7 +34,7 @@
     <string name="user_name">User Name</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="text_view_home">Este es el Home</string>
+    <string name="text_view_home">Bienvenidos a Habit Tracker</string>
     <string name="text_view_profile">Este es el Perfil</string>
     <string name="text_view_tools">Herramientas</string>
     <string name="text_view_help">Esta es la Ayuda</string>
@@ -68,6 +69,7 @@
     <string name="habit5_newLanguage">Aprende un nuevo idioma</string>
     <string name="habit6_dairy">Escribe un diario</string>
     <string name="habit7_floss">Usa Seda dental</string>
+    <string name="add_your_habit">Agrega tu hábito</string>
     <string name="personalize_habits">Personaliza tus Hábitos</string>
     <string name="btn_save">Guardar</string>
 
