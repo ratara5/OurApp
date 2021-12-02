@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HabitListActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/habitsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/habits_list_row">
+
+        </ListView>
+
+
+    </LinearLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:clickable="true"
+        android:visibility="visible"
+        app:fab_addButtonColorNormal="?attr/colorPrimary"
+        app:fab_addButtonSize="normal"
+        app:fab_labelsPosition="left"
+        tools:visibility="visible">
+        <!--
+        android:layout_margin="@dimen/margenes_fab"
+        app:fab_labelStyle="@style/Etiquetas"
+        app:fab_labelStyle="@style/Etiquetas"-->
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="?attr/colorAccent"
+            app:fab_icon="@drawable/ic_cloud"
+            app:fab_size="mini"
+            app:fab_title="@string/cloud" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="?attr/colorAccent"
+            app:fab_icon="@drawable/ic_create"
+            app:fab_size="mini"
+            app:fab_title="@string/create" />
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +17,7 @@ import android.widget.ImageButton;
  */
 public class HomeFragment extends Fragment {
 
-    Button btnGoFormHabits, btnGoListHabits;
+    Button btnGoListHabits, btnGoTodayHabits, btnGoAddHabitsBD;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,22 +64,34 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
-        btnGoFormHabits = (Button) view.findViewById(R.id.buttonGoFormHabits);
         btnGoListHabits= (Button) view.findViewById(R.id.buttonGoListHabits);
-
-        btnGoFormHabits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NewActivity.class);
-                startActivity(intent);
-            }
-        });
+        btnGoTodayHabits=(Button)view.findViewById(R.id.buttonGoTodayHabits);
+        btnGoAddHabitsBD=(Button)view.findViewById(R.id.buttonGoAddHabits);
 
         btnGoListHabits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Habit2Activity.class);
+                //Intent intent = new Intent(getActivity(), Habit2Activity.class);
+                Intent intent = new Intent(getActivity(), HabitListActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnGoTodayHabits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(getActivity(), Habit2Activity.class);
+                Intent intent2 = new Intent(getActivity(), TodayHabitsActivity.class);
+                startActivity(intent2);
+            }
+        });
+
+        btnGoAddHabitsBD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(getActivity(), Habit2Activity.class);
+                Intent intent3 = new Intent(getActivity(), NewActivity.class);
+                startActivity(intent3);
             }
         });
 

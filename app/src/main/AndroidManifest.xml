@@ -21,13 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Habit_Tracker">
         <activity
-            android:name=".DailyTrackerActivity"
+            android:name=".TodayHabitsActivity"
             android:exported="false" />
         <activity
-            android:name=".Habit2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ListActivity"
+            android:name=".HabitListActivity"
             android:exported="false" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -48,7 +45,8 @@
             android:parentActivityName=".HabitsActivity" />
         <activity
             android:name=".NewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".HabitListActivity" />
         <activity
             android:name=".HabitsActivity"
             android:exported="false"
@@ -57,7 +55,6 @@
             android:name=".LaunchActivity"
             android:exported="true">
 
-            <!-- Se había movido el siguiente bloque a AuthActivity para que login FB funcione(?) 08112021 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,17 +66,7 @@
             android:exported="false" />
         <activity
             android:name=".AuthActivity"
-            android:exported="true">
-
-            <!-- Esta activity se definió como la app de enlaces profundos en FB 08112021 -->
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

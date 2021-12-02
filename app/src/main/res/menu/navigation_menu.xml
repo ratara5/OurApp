@@ -8,13 +8,6 @@
         android:title="@string/profile" />
     <!--android:icon="@drawable/ic_favorite_24dp"-->
 
-    <item
-        android:id="@+id/menuSearch"
-        android:title="@string/search"
-        android:icon="@drawable/ic_search"
-        android:contentDescription="@string/content_description_search"/>
-    <!--android:icon="@drawable/ic_search_24dp"-->
-
     <item android:id="@+id/menuHome"
         android:icon="@drawable/ic_home"
         android:title="@string/icon_home"/>
@@ -31,8 +24,9 @@
         android:icon="@drawable/ic_settings"
         android:title="@string/icon_settings"/>
 
-    <item android:id="@+id/menuSupport"
-        android:title="@string/support"/>
+    <item android:id="@+id/menuAboutUs"
+        android:icon="@drawable/ic_info"
+        android:title="@string/icon_aboutus"/>
 
     <item
         android:id="@+id/menuLogout"

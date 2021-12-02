@@ -29,7 +29,7 @@
     <string name="icon_chart">Herramientas</string>
     <string name="icon_shop">Tienda</string>
     <string name="icon_settings">Configuración</string>
-    <string name="support">Ayuda</string>
+    <string name="support">Nosotros</string>
     <string name="user_name">User Name</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -59,22 +59,22 @@
 
     <string name="done">done</string>
     <string name="locations">Ubicaciones útiles</string>
-    <string name="add_your_habit1">Agrega tu habito</string>
-    <string name="add_your_habit2">Agrega tu habito</string>
+    <string name="add_your_habit8">Agrega tu habito</string>
+    <string name="add_your_habit9">Agrega tu habito</string>
     <string name="habit1_water">Toma agua</string>
     <string name="habit2_read">Lee un poco</string>
     <string name="habit3_wakeupEarly">Despierta temprano</string>
-    <string name="habit4_pushups">Realiza flexiones</string>
+    <string name="habit4_push">Realiza flexiones</string>
     <string name="habit5_newLanguage">Aprende un nuevo idioma</string>
     <string name="habit6_dairy">Escribe un diario</string>
-    <string name="habit7_floss">Usa ceda dental</string>
-    <string name="personalice_habits">Personaliza tus habitos diarios</string>
+    <string name="habit7_floss">Usa Seda dental</string>
+    <string name="personalize_habits">Personaliza tus Hábitos</string>
     <string name="btn_save">Guardar</string>
 
     <string name="content_help1">\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</string>
-    <string name="edit_text_habit_name">name</string>
-    <string name="edit_text_habit_description">description</string>
-    <string name="edit_text_habit_category">category</string>
+    <string name="edit_text_habit_name">Nombre</string>
+    <string name="edit_text_habit_description">Descripción</string>
+    <string name="edit_text_habit_category">Categoría</string>
     <string name="btn_goHabitsForm">Ir a Formulario de hábitos</string>
     <string name="btn_goHabitsList">Ir a Lista de Hábitos</string>
 
@@ -82,5 +82,21 @@
     <string name="failure_on_save">Error en guardado de datos</string>
 
     <string name="failure_on_get">Error al realizar la consulta</string>
+    <string name="habit_name_example">Ejemplo Nombre Hábito</string>
+    <string name="habit_category_example">Ejemplo Categoría Hábito</string>
+    <string name="cloud">Obtener</string>
+    <string name="create">Crear</string>
+
+    <string name="icon_aboutus">Nosotros</string>
+    <string name="text_view_aboutus">Esto es Sobre Nosotros</string>
+    <string name="all_fields">Aségurate de rellenar TODOS los campos</string>
+    <string name="tv_save_habit">Guarda tu hábito personalizado</string>
+    <string name="about_our">Habit Tracker es una app pensada para que cada uno de nuestros
+    usuarios adopten hábitos de vida saludables, dadas las multiples funciones que se encuentran en
+        la app. Sus creadores, son la segunda generación de tripulantes de Misión TIC; quienes
+        ofrecen una aplicación totalmente funcional, gratuita y abierta al público.
+
+    </string>
+    <string name="btn_goTodayHabits">Ir a Hábitos Cumplidos Hoy</string>
 
 </resources>
