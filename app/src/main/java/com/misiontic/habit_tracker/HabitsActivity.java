@@ -13,9 +13,6 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class HabitsActivity extends AppCompatActivity {
     static int[] EASY = new int[]{6,5,5,4};
@@ -24,44 +21,77 @@ public class HabitsActivity extends AppCompatActivity {
     private TextView textContenedorNumero;
     int pos = 0;
     private Button btnTouchAction;
-    private CheckBox cbHabit4Push, checkBox2, checkBox3;
+    private CheckBox[] cbList;
+    private int [] selected_runtime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habits);
-        cbHabit4Push =(CheckBox) findViewById(R.id.cbHabit4Push);
-        checkBox2 =(CheckBox) findViewById(R.id.checkBox2);
-        checkBox3 =(CheckBox) findViewById(R.id.checkBox3);
 
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.my_child_toolbar);
         setSupportActionBar(myChildToolbar);
 
         ActionBar ab = getSupportActionBar();
+        encontrarComponentesPorId();
 
         ab.setDisplayHomeAsUpEnabled(true);
 
-        encontrarComponentesPorId();
-        cbHabit4Push.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(cbHabit4Push.isChecked()){
-                    checkBox3.setEnabled(false);
-                    checkBox2.setEnabled(false);
-                    textContenedorNumero.setText(""+EASY[0]);
-                    ejecutarRutina(EASY);
-                    pos=0;
-                }else{
-                    checkBox3.setEnabled(true);
-                    checkBox2.setEnabled(true);
-                }
-
-                Log.i("ESTAD0", "onClick: "+ cbHabit4Push.isChecked());
-            }
-        });
-        cbHabit4Push.setChecked(true);
+        cbList = new CheckBox[]{
+                (CheckBox) findViewById(R.id.easyRuntimeCb),
+                (CheckBox) findViewById(R.id.mediumRuntimeCb),
+                (CheckBox) findViewById(R.id.hardRuntimeCb)
+        };
+        for (CheckBox cb:cbList) {
+            cb.setOnCheckedChangeListener(cbListener);
+        }
         Toast.makeText(getApplicationContext(), "Checkeado",Toast.LENGTH_LONG);
 
+    }
+
+    CompoundButton.OnCheckedChangeListener cbListener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            checkEnoughAndMakeDisabled(cbList);
+        }
+    };
+
+    private void checkEnoughAndMakeDisabled(CheckBox checkBoxes[]){
+        int countChecked = 0;
+        for (CheckBox cb:checkBoxes){
+            cb.setEnabled(true);
+            if (cb.isChecked()) {
+                int selectedCb = cb.getId();
+                String selectedName = getResources().getResourceEntryName(selectedCb);
+                Log.d("selected cb", selectedName);
+                callAction(selectedName);
+                countChecked++;
+            }
+        }
+        if (countChecked == 1) {
+            for (CheckBox cb:checkBoxes){
+                if (!cb.isChecked())cb.setEnabled(false);
+            }
+        }
+    }
+
+    private void callAction(String selectedCb) {
+        switch(selectedCb) {
+            case "easyRuntimeCb":
+                selected_runtime = EASY;
+                break;
+            case "mediumRuntimeCb":
+                selected_runtime = MEDIO;
+                break;
+            case "hardRuntimeCb":
+                selected_runtime = HARD;
+                break;
+        }
+        if(selected_runtime.length > 0){
+            textContenedorNumero.setText(""+selected_runtime[0]);
+            ejecutarRutina(selected_runtime);
+            pos=0;
+        }
     }
 
 
