@@ -54,10 +54,10 @@ public class NewActivity extends AppCompatActivity {
                     "VALUES('" + habitName + "','" + habitDescription + "','" + habitCategory + "')";
             boolean suc = connectionBD.insertData(insertQuery);
             if (suc) {
-                Toast.makeText(this, R.string.success_on_save + " en local", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, this.getString(R.string.success_on_save) + " en local", Toast.LENGTH_LONG).show();
                 cleanForm();
             } else {
-                Toast.makeText(this, R.string.failure_on_save + " en local", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, this.getString(R.string.failure_on_save) + " en local", Toast.LENGTH_LONG).show();
             }
             Intent intent = new Intent(NewActivity.this, HabitListActivity.class);
             startActivity(intent);
