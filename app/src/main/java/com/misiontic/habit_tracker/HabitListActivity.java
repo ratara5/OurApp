@@ -92,6 +92,12 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         adapter.notifyDataSetChanged();
         */
         adapter.setCheckedlistener(this);
+
+        //si la hora son las 00:00 -> update a base todos los campos de checked serán false. EN SEGUNDO PLANO
+        //String time = new SimpleDateFormat("hh:mm").format(new Date());
+        //if(time=="00:00"){
+
+        //}
     }
 
     public Cursor getHabitsBd(){
@@ -135,12 +141,34 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         AlertDialog.Builder dialog1 = new AlertDialog.Builder(HabitListActivity.this);
         dialog1.setTitle("Descripción del hábito " + selectedHabit.getName() + ": ");
         dialog1.setMessage(selectedHabit.getDescription());
-        dialog1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        dialog1.setPositiveButton("VOLVER", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
+        dialog1.setNegativeButton("ELIMINAR", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String tabla = "habits";
+                String whereClause = "_id = ?";
+                String[] params = new String[]{String.valueOf(selectedHabit.getId())};
+                MySQLiteHelper connectionBD = new MySQLiteHelper(HabitListActivity.this);
+                int rows = connectionBD.deleteData(tabla, whereClause, params);
+
+
+                if (rows > 0) {
+                    Toast.makeText(HabitListActivity.this, "Hábito eliminado", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HabitListActivity.this, HomeActivity.class);
+                    startActivity(intent);
+
+                } else {
+                    Toast.makeText(HabitListActivity.this, "No se pudo eliminar el hábito", Toast.LENGTH_SHORT).show();
+                }
+                dialog.cancel();
+            }
+        });
+
         dialog1.create();
         dialog1.show();
         //se puede eliminar desde aquí?
