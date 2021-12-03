@@ -8,31 +8,31 @@
     <fragment
         android:id="@+id/menuProfile"
         android:name="com.misiontic.habit_tracker.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="@string/lbl_fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/menuHome"
         android:name="com.misiontic.habit_tracker.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/lbl_fragment_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/menuCharts"
         android:name="com.misiontic.habit_tracker.ToolsFragment"
-        android:label="fragment_tools"
+        android:label="@string/lbl_fragment_tools"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/menuLogout"
         android:name="com.misiontic.habit_tracker.LogoutFragment"
-        android:label="fragment_logout"
+        android:label="@string/lbl_fragment_logout"
         tools:layout="@layout/fragment_logout" />
 
     <fragment
         android:id="@+id/menuAboutUs"
         android:name="com.misiontic.habit_tracker.AboutUsFragment"
-        android:label="fragment_about_us"
+        android:label="@string/lbl_fragment_about_us"
         tools:layout="@layout/fragment_about_us" />
 
 
