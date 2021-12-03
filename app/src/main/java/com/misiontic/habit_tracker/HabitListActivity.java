@@ -149,7 +149,7 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         Habits checkedHabit=(Habits)listView.getItemAtPosition(position);
         //Toast.makeText(getApplicationContext(),"Has marcado "+checkedHabit.getName()+"?",Toast.LENGTH_LONG).show();
         habitList.remove(position);
-        adapter.notifyDataSetChanged();
+        //adapter.notifyDataSetChanged();
         //Enviar normal
         int checkedHabitId=checkedHabit.getId();
         /*
@@ -191,6 +191,10 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         } else {
             Toast.makeText(this, this.getString(R.string.failure_on_save) + " en local", Toast.LENGTH_LONG).show();
         }
+        //adapter.clear();
+        adapter.notifyDataSetChanged();
+        listView.setAdapter(adapter);
 
     }
+
 }
