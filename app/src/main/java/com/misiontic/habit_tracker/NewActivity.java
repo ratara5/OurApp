@@ -50,8 +50,8 @@ public class NewActivity extends AppCompatActivity {
         if(!habitName.equals("") && !habitDescription.equals("") && !habitCategory.equals("")) {
             //Guardar en local
             MySQLiteHelper connectionBD = new MySQLiteHelper(this);
-            String insertQuery = "INSERT INTO habits(name, description, category)" +
-                    "VALUES('" + habitName + "','" + habitDescription + "','" + habitCategory + "')";
+            String insertQuery = "INSERT INTO habits(name, description, category, checked)" +
+                    "VALUES('" + habitName + "','" + habitDescription + "','" + habitCategory + "','FALSE')";
             boolean suc = connectionBD.insertData(insertQuery);
             if (suc) {
                 Toast.makeText(this, this.getString(R.string.success_on_save) + " en local", Toast.LENGTH_LONG).show();

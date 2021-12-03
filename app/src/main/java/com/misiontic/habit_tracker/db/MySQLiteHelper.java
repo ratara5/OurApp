@@ -71,7 +71,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         */
         //Básico una sola sentencia
         db.execSQL("CREATE TABLE habits(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, description TEXT, category TEXT)");
+                "name TEXT, description TEXT, category TEXT, checked TEXT)");
         db.execSQL("CREATE TABLE dates(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "date DATETIME, id_habit INTEGER)");
     }

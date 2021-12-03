@@ -2,6 +2,7 @@ package com.misiontic.habit_tracker;
 
 import static android.media.CamcorderProfile.get;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -95,8 +96,10 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
     public Cursor getHabitsBd(){
         MySQLiteHelper connectionBD = new MySQLiteHelper(this);
-        String selectQuery = "SELECT * FROM habits";
-        Cursor results = connectionBD.getData(selectQuery, null);
+        String selectQuery = "SELECT * FROM habits WHERE checked=?";
+        String[] params = new String[]{String.valueOf("FALSE")};
+        Cursor results = connectionBD.getData(selectQuery, params);
+        //Cursor results = connectionBD.getData(selectQuery, null);
         return results;
     }
 
@@ -152,6 +155,7 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         //adapter.notifyDataSetChanged();
         //Enviar normal
         int checkedHabitId=checkedHabit.getId();
+        checkedHabit.setSelected(true);
         /*
         Intent intentToday=new Intent(HabitListActivity.this,TodayHabitsActivity.class);
         intentToday.putExtra("checkedHabitId",checkedHabitId);
@@ -180,6 +184,8 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         String.valueOf(today.format(now.getTime()));
          */
 
+        updateHabitChecked(checkedHabit);
+
         String today = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 
         String insertQuery = "INSERT INTO dates(date, id_habit )" +
@@ -195,6 +201,27 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
 
+    }
+
+    public void updateHabitChecked(Habits checkedHabit) {
+        String tabla = "habits";
+        ContentValues cv = new ContentValues();
+        cv.put("name", checkedHabit.getName().toString());
+        cv.put("description", checkedHabit.getDescription().toString());
+        cv.put("category", checkedHabit.getCategory().toString());
+        cv.put("checked", "TRUE");
+        String whereClause = "_id = ?";
+        String[] params = new String[]{String.valueOf(checkedHabit.getId())};
+        MySQLiteHelper connectionBD = new MySQLiteHelper(this);
+        int rows = connectionBD.updateData(tabla, cv, whereClause, params);
+        if (rows > 0) {
+            Toast.makeText(this, "Chequeo de hábito actualizado", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HabitListActivity.this, TodayHabitsActivity.class);
+            startActivity(intent);
+
+        } else {
+            Toast.makeText(this, "Chequeo de hábito no se pudo actualizar", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
