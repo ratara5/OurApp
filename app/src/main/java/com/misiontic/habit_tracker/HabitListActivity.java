@@ -65,9 +65,10 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
         //Cursor ...a... listview
         Cursor results=getHabitsBd();
-        habitList=getHabitList(results);
-        listView=adapterHabits(habitList);
+        habitList = getHabitList(results);
+        listView = adapterHabits(habitList);
         results.close();
+
 
         //Al tocar
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -100,33 +101,31 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
     }
 
     public ArrayList<Habits> getHabitList(Cursor results) {
-        results.moveToFirst();
-        do {
-            int id = results.getInt(0);
-            int nameId = results.getColumnIndex("name");
-            String nameHabit = results.getString(nameId);
-            String descriptionHabit = results.getString(2);
-            String categoryHabit = results.getString(3);
+        try {
+            results.moveToFirst();
+            do {
+                int id = results.getInt(0);
+                int nameId = results.getColumnIndex("name");
+                String nameHabit = results.getString(nameId);
+                String descriptionHabit = results.getString(2);
+                String categoryHabit = results.getString(3);
 
-            Habits newHabit=new Habits(nameHabit,descriptionHabit,categoryHabit);
-            newHabit.setId(id);
+                Habits newHabit = new Habits(nameHabit, descriptionHabit, categoryHabit);
+                newHabit.setId(id);
 
-            habitList.add(newHabit);
+                habitList.add(newHabit);
 
-        } while (results.moveToNext());
+            } while (results.moveToNext());
+        } catch (Exception e) {
+            Toast.makeText(this, this.getString(R.string.failure_on_get), Toast.LENGTH_LONG).show();
+        }
         return habitList;
     }
 
-    public ListView adapterHabits(ArrayList habitList) {
-
-        try {
-            adapter = new HabitListViewAdapter(this, habitList);
-            listView.setAdapter(adapter);
-        } catch (Exception e) {
-            Toast.makeText(this, R.string.failure_on_get, Toast.LENGTH_LONG).show();
-        }
+    public ListView adapterHabits(ArrayList<Habits> habitList) {
+        adapter = new HabitListViewAdapter(this, habitList);
+        listView.setAdapter(adapter);
         return listView;
-
     }
 
     public void dialog(Habits selectedHabit) {
@@ -188,9 +187,9 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
         boolean suc = connectionBD.insertData(insertQuery);
         if (suc) {
-            Toast.makeText(this, R.string.success_on_save + " en local", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, this.getString(R.string.success_on_save) + " en local", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, R.string.failure_on_save + " en local", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, this.getString(R.string.failure_on_save) + " en local", Toast.LENGTH_LONG).show();
         }
 
     }
