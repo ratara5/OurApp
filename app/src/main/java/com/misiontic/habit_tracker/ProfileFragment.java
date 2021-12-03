@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,7 +34,8 @@ import java.util.Map;
  */
 public class ProfileFragment extends Fragment {
 
-    EditText etEmail, etNameFirst, etNameLast, etPhone, etAddress;
+    TextView tvEmail;
+    EditText etNameFirst, etNameLast, etPhone, etAddress;
     String email;
     Button btnGet, btnSave, btnDelete;
 
@@ -101,7 +103,8 @@ public class ProfileFragment extends Fragment {
 
 
 
-        etEmail= (EditText) view.findViewById(R.id.editTextEmail);
+        tvEmail= (TextView) view.findViewById(R.id.textViewEmail);
+
         etNameFirst= (EditText) view.findViewById(R.id.editTextNameFirst);
         etNameLast= (EditText) view.findViewById(R.id.editTextNameLast);
         etPhone= (EditText) view.findViewById(R.id.editTextPhone);
@@ -111,7 +114,7 @@ public class ProfileFragment extends Fragment {
         btnSave=(Button)view.findViewById(R.id.saveButton);
         btnDelete=(Button)view.findViewById(R.id.deleteButton);
 
-        etEmail.setText(email);
+        tvEmail.setText(email);
 
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
