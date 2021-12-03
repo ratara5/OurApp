@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             >
 
             <TextView
@@ -30,7 +30,10 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textAlignment="center"
-                android:text="@string/text_view_logout" />
+                android:fontFamily="@font/comfortaa_bold"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/text_view_logout"
+                />
 
             <Space
                 android:layout_width="match_parent"
