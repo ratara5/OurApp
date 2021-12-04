@@ -10,14 +10,15 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class StepCounterActivity extends AppCompatActivity implements SensorEventListener {
 
-    TextView tv_steps;
-    SensorManager sensorManager;
-    boolean running = false;
+    private TextView tv_steps;
+    private SensorManager sensorManager;
+    private boolean running = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,9 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
         ab.setDisplayHomeAsUpEnabled(true);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         tv_steps = findViewById(R.id.tv_steps);
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
     }
 
     @Override
@@ -43,7 +45,7 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         running = true;
         Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         if (countSensor != null) {
-            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
+            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else {
             Toast.makeText(this, "Sensor no encontrado", Toast.LENGTH_LONG).show();
         }
