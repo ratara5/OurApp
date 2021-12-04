@@ -4,7 +4,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,6 +17,7 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
 
     private TextView tv_steps;
     private SensorManager sensorManager;
+    private Sensor countSensor;
     private boolean running = false;
 
     @Override
@@ -43,7 +43,7 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     protected void onResume() {
         super.onResume();
         running = true;
-        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         if (countSensor != null) {
             sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else {
