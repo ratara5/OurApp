@@ -43,9 +43,9 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         running = true;
         Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         if (countSensor != null) {
-            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
         } else {
-            Toast.makeText(this, "Sensor no encontrado", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Sensor no encontrado", Toast.LENGTH_SHORT).show();
         }
     }
 
