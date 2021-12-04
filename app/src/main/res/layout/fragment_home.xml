@@ -22,9 +22,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:text="@string/Home_message"
+            android:textAlignment="center"
+            android:textSize="24sp"
+             />
+            <!--app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"-->
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
         <Button
             android:id="@+id/buttonGoListHabits"
@@ -45,35 +64,7 @@
             android:text="@string/btn_goTodayHabits"
             />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
 
-        <Button
-            android:id="@+id/buttonGoAddHabits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/btn_addHabitsToDB" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa_bold"
-            android:text="@string/Home_message"
-            android:textAlignment="center"
-            android:textSize="24sp"
-             />
-            <!--app:layout_constraintVertical_bias="0.6"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"-->
 
     </LinearLayout>
 

@@ -29,15 +29,12 @@
     <string name="icon_home">Inicio</string>
     <string name="icon_chart">Herramientas</string>
     <string name="icon_shop">Tienda</string>
-    <string name="icon_settings">Configuración</string>
     <string name="support">Nosotros</string>
     <string name="user_name">User Name</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_view_home">Bienvenidos a Habit Tracker</string>
-    <string name="text_view_profile">Este es el Perfil</string>
+    <string name="text_view_profile">Perfil</string>
     <string name="text_view_tools">Herramientas</string>
-    <string name="text_view_help">Esta es la Ayuda</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="accountant">0</string>
     <string name="text_view_logout">¿Seguro deseas cerrar sesión?</string>
@@ -60,17 +57,7 @@
 
     <string name="done">done</string>
     <string name="locations">Ubicaciones útiles</string>
-    <string name="add_your_habit8">Agrega tu habito</string>
-    <string name="add_your_habit9">Agrega tu habito</string>
-    <string name="habit1_water">Toma agua</string>
-    <string name="habit2_read">Lee un poco</string>
-    <string name="habit3_wakeupEarly">Despierta temprano</string>
-    <string name="habit4_push">Realiza flexiones</string>
-    <string name="habit5_newLanguage">Aprende un nuevo idioma</string>
-    <string name="habit6_dairy">Escribe un diario</string>
-    <string name="habit7_floss">Usa Seda dental</string>
-    <string name="add_your_habit">Agrega tu hábito</string>
-    <string name="personalize_habits">Personaliza tus Hábitos</string>
+
     <string name="btn_save">Guardar</string>
 
     <string name="lbl_fragment_home">Inicio</string>
@@ -80,10 +67,10 @@
     <string name="lbl_fragment_about_us">Sobre nosotros</string>
     <string name="lbl_fragment_logout">Cerrar sesión</string>
 
-    <string name="content_help1">\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</string>
     <string name="edit_text_habit_name">Nombre</string>
     <string name="edit_text_habit_description">Descripción</string>
     <string name="edit_text_habit_category">Categoría</string>
+
     <string name="btn_goHabitsForm">Ir a Formulario de hábitos</string>
     <string name="btn_goHabitsList">Ir a Lista de Hábitos</string>
 

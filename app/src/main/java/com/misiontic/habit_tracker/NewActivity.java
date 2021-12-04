@@ -40,7 +40,7 @@ public class NewActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
-        ab.setTitle("Ir a Hábitos disponibles");
+        ab.setTitle("Volver");
         ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
     }
 
