@@ -40,6 +40,8 @@ public class NewActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("Ir a Hábitos disponibles");
+        ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
     }
 
     public void saveForm(View view){

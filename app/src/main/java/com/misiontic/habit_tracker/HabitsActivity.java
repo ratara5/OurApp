@@ -29,13 +29,15 @@ public class HabitsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_habits);
 
         Toolbar myChildToolbar =
-                (Toolbar) findViewById(R.id.my_child_toolbar);
+                (Toolbar) findViewById(R.id.my_ch_toolbar);
         setSupportActionBar(myChildToolbar);
 
         ActionBar ab = getSupportActionBar();
         encontrarComponentesPorId();
 
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("Ir a Herramientas");
+        ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
 
         cbList = new CheckBox[]{
                 (CheckBox) findViewById(R.id.easyRuntimeCb),

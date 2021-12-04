@@ -16,8 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.misiontic.habit_tracker.db.MySQLiteHelper;
@@ -51,6 +53,16 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
         listView = findViewById(R.id.habitsList);
         habitList = new ArrayList<>();
+
+        Toolbar myChildToolbar =
+                (Toolbar) findViewById(R.id.yl_toolbar);
+        setSupportActionBar(myChildToolbar);
+
+        ActionBar ab = getSupportActionBar();
+
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("Ir a Home");
+        ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
 
         fabCreate=findViewById(R.id.fabCreate);
         fabCreate.setOnClickListener(new View.OnClickListener() {

@@ -45,6 +45,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("Ir a Herramientas");
+        ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

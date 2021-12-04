@@ -1,7 +1,9 @@
 package com.misiontic.habit_tracker;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -38,6 +40,16 @@ public class TodayHabitsActivity extends AppCompatActivity {
 
         listView2=findViewById(R.id.listView2);
         todayHabitsList=new ArrayList<>();
+
+        Toolbar myChildToolbar =
+                (Toolbar) findViewById(R.id.mh_toolbar);
+        setSupportActionBar(myChildToolbar);
+
+        ActionBar ab = getSupportActionBar();
+
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("Ir a Home");
+        ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
 
         //Obtener con serializable
         /*
