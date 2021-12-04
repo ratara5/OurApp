@@ -17,7 +17,6 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
 
     private TextView tv_steps;
     private SensorManager sensorManager;
-    private Sensor countSensor;
     private boolean running = false;
 
     @Override
@@ -34,7 +33,6 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
         ab.setDisplayHomeAsUpEnabled(true);
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         tv_steps = findViewById(R.id.tv_steps);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
     }
@@ -43,7 +41,7 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     protected void onResume() {
         super.onResume();
         running = true;
-        countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         if (countSensor != null) {
             sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else {
