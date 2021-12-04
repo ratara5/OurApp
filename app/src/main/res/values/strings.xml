@@ -19,12 +19,13 @@
 
     <string name="profile">Perfil</string>
     <string name="search">Búsqueda</string>
-    <string name="content_description_search">Búsqueda descripción</string>
+    <string name="content_description_search">Ir a búsqueda</string>
     <string name="logout">Cerrar Sesión</string>
-    <string name="content_description_logout">CerrarSesión Descripción</string>
-    <string name="content_description_profile">Perfil Descripción</string>
+    <string name="content_description_logout">Ir a cerrar sesión</string>
+    <string name="content_description_profile">Ir al Perfil</string>
     <string name="content_description_btn_push_ups">Ir a las flexiones</string>
     <string name="content_description_btn_maps">Ir al mapa</string>
+    <string name="content_description_btn_step_counter">Ir al contador de pasos</string>
 
     <string name="icon_home">Inicio</string>
     <string name="icon_chart">Herramientas</string>
@@ -35,7 +36,7 @@
     <string name="text_view_home">Bienvenidos a Habit Tracker</string>
     <string name="text_view_profile">Perfil</string>
     <string name="text_view_tools">Herramientas</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps">Mapa de ubicaciones</string>
     <string name="accountant">0</string>
     <string name="text_view_logout">¿Seguro deseas cerrar sesión?</string>
     <string name="ok">OK</string>
@@ -56,6 +57,7 @@
     <string name="btn_delete">ELIMINAR</string>
 
     <string name="done">done</string>
+
     <string name="locations">Ubicaciones útiles</string>
 
     <string name="btn_save">Guardar</string>
@@ -96,5 +98,11 @@
     <string name="btn_goTodayHabits">Ir a Hábitos Cumplidos Hoy</string>
     <string name="Home_message">Con nuestra app podrás llevar registro de tus hábitos...¡la forma más sencilla de motivarte a continuar!</string>
     <string name="btn_addHabitsToDB">Añadir habitos a BD</string>
+
+    <string name="push_ups_begin">INICIA TU RUTINA DE FLEXIONES</string>
+
+    <string name="step_count_begin">INICIA A CONTAR TU PASOS</string>
+    <string name="steps_number">Número de pasos</string>
+    <string name="counter_start">0</string>
 
 </resources>

@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.misiontic.habit_tracker">
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the "MyLocation" functionality.
-    -->
+
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="true"/>
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.location.gps" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -21,13 +21,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Habit_Tracker">
         <activity
+            android:name=".StepCounterActivity"
+            android:exported="false"
+            android:parentActivityName=".HabitsActivity" />
+        <activity
             android:name=".TodayHabitsActivity"
             android:exported="false"
-            android:parentActivityName=".HomeActivity"/>
+            android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".HabitListActivity"
             android:exported="false"
-            android:parentActivityName=".HomeActivity"/>
+            android:parentActivityName=".HomeActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -56,7 +60,6 @@
         <activity
             android:name=".LaunchActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

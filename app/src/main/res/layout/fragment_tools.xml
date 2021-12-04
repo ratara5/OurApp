@@ -81,6 +81,35 @@
                 tools:ignore="SpeakableTextPresentCheck"
                 android:contentDescription="@string/content_description_btn_maps" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contador de pasos"
+                android:textSize="20sp"
+                android:fontFamily="@font/comfortaa"
+                android:layout_weight="2"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="130dp"/>
+
+            <ImageButton
+                android:id="@+id/btnStepCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/primaryDarkColor"
+                android:contentDescription="@string/content_description_btn_step_counter"
+                android:minHeight="48dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

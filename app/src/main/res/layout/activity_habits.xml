@@ -25,12 +25,11 @@
         android:layout_width="628dp"
         android:layout_height="51dp"
         android:background="@color/primaryDarkColor"
-        android:fontFamily="@font/comfortaa"
-        android:text="INICIA TU RUTINA DE FLEXIONES"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="@string/push_ups_begin"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="21dp"
-        android:textStyle="bold"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/flexiones" />
+        android:src="@drawable/flexiones" />
 
     <TextView
         android:id="@+id/textView5"
@@ -118,9 +117,8 @@
         android:text="@string/accountant"
         android:textAlignment="center"
         android:textColor="#F44336"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/comfortaa_bold"
         android:textSize="45sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -189,7 +187,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCont"
         app:layout_constraintVertical_bias="0.95"
-        app:srcCompat="@drawable/touch" />
+        android:src="@drawable/touch" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

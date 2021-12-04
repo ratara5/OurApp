@@ -19,7 +19,7 @@ import android.widget.ImageButton;
  */
 public class ToolsFragment extends Fragment {
 
-    ImageButton btnPushUps, btnMaps;
+    ImageButton btnPushUps, btnMaps, btnStepCounter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +80,16 @@ public class ToolsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        btnStepCounter = (ImageButton) view.findViewById(R.id.btnStepCounter);
+        btnStepCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), StepCounterActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }
