@@ -70,6 +70,8 @@
     <string name="lbl_fragment_about_us">Sobre nosotros</string>
     <string name="lbl_fragment_logout">Cerrar sesión</string>
 
+    <string name="title_go_home">Ir a Home</string>
+
     <string name="edit_text_habit_name">Nombre</string>
     <string name="edit_text_habit_description">Descripción</string>
     <string name="edit_text_habit_category">Categoría</string>
@@ -85,6 +87,15 @@
     <string name="habit_category_example">Ejemplo Categoría Hábito</string>
     <string name="cloud">Obtener</string>
     <string name="create">Crear</string>
+
+    <string name="habit_deleted">Hábito eliminado</string>
+    <string name="habit_didnt_delete">No se pudo eliminar el hábito</string>
+    <string name="back">VOLVER</string>
+
+    <string name="in_local">en local</string>
+
+    <string name="habit_checked">Chequeo de hábito exitoso</string>
+    <string name="habit_didnt_checked">Chequeo de hábito falló</string>
 
     <string name="icon_aboutus">Nosotros</string>
     <string name="text_view_aboutus">Esto es Sobre Nosotros</string>

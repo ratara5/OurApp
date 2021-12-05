@@ -61,7 +61,7 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
-        ab.setTitle("Ir a Home");
+        ab.setTitle(R.string.title_go_home);
         ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
 
         fabCreate=findViewById(R.id.fabCreate);
@@ -151,15 +151,15 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
     public void dialog(Habits selectedHabit) {
         AlertDialog.Builder dialog1 = new AlertDialog.Builder(HabitListActivity.this);
-        dialog1.setTitle("Descripción del hábito " + selectedHabit.getName() + ": ");
+        dialog1.setTitle(this.getString(R.string.edit_text_habit_description)+" "+selectedHabit.getName()+": ");
         dialog1.setMessage(selectedHabit.getDescription());
-        dialog1.setPositiveButton("VOLVER", new DialogInterface.OnClickListener() {
+        dialog1.setPositiveButton(this.getString(R.string.back), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-        dialog1.setNegativeButton("ELIMINAR", new DialogInterface.OnClickListener() {
+        dialog1.setNegativeButton(this.getString(R.string.btn_delete), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String tabla = "habits";
@@ -170,12 +170,12 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
 
                 if (rows > 0) {
-                    Toast.makeText(HabitListActivity.this, "Hábito eliminado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HabitListActivity.this,R.string.habit_deleted, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(HabitListActivity.this, HomeActivity.class);
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(HabitListActivity.this, "No se pudo eliminar el hábito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HabitListActivity.this, R.string.habit_didnt_delete, Toast.LENGTH_SHORT).show();
                 }
                 dialog.cancel();
             }
@@ -233,9 +233,9 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
 
         boolean suc = connectionBD.insertData(insertQuery);
         if (suc) {
-            Toast.makeText(this, this.getString(R.string.success_on_save) + " en local", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, this.getString(R.string.success_on_save) +" "+this.getString(R.string.in_local), Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, this.getString(R.string.failure_on_save) + " en local", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, this.getString(R.string.failure_on_save) +" "+this.getString(R.string.in_local), Toast.LENGTH_LONG).show();
         }
         //adapter.clear();
         adapter.notifyDataSetChanged();
@@ -255,12 +255,12 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         MySQLiteHelper connectionBD = new MySQLiteHelper(this);
         int rows = connectionBD.updateData(tabla, cv, whereClause, params);
         if (rows > 0) {
-            Toast.makeText(this, "Chequeo de hábito actualizado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.habit_checked), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(HabitListActivity.this, TodayHabitsActivity.class);
             startActivity(intent);
 
         } else {
-            Toast.makeText(this, "Chequeo de hábito no se pudo actualizar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.habit_didnt_checked), Toast.LENGTH_SHORT).show();
         }
     }
 
