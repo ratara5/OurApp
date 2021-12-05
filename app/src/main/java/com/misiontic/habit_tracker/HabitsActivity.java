@@ -33,7 +33,7 @@ public class HabitsActivity extends AppCompatActivity {
         setSupportActionBar(myChildToolbar);
 
         ActionBar ab = getSupportActionBar();
-        ab.setTitle("Ir a Herramientas");
+        ab.setTitle(R.string.title_go_tools);
         ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
         encontrarComponentesPorId();
 

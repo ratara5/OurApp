@@ -71,6 +71,7 @@
     <string name="lbl_fragment_logout">Cerrar sesión</string>
 
     <string name="title_go_home">Ir a Home</string>
+    <string name="title_go_tools">Ir a Herramientas</string>
 
     <string name="edit_text_habit_name">Nombre</string>
     <string name="edit_text_habit_description">Descripción</string>

@@ -45,7 +45,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
-        ab.setTitle("Ir a Herramientas");
+        ab.setTitle(R.string.title_go_tools);
         ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
 
 
