@@ -42,7 +42,7 @@
         android:layout_marginEnd="106dp"
         android:layout_marginBottom="490dp"
         android:fontFamily="@font/comfortaa"
-        android:text="V 1.0.0 - 07/12/2021"
+        android:text="@string/version_app"
         android:textAlignment="center"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -93,7 +93,7 @@
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Raymond Tabares"
+            android:text="@string/developer1"
             android:textAlignment="center"
             android:textStyle="bold|italic" />
 
@@ -120,7 +120,7 @@
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Juan Gómez"
+            android:text="@string/developer2"
             android:textAlignment="center"
             android:textStyle="bold|italic" />
 
@@ -148,7 +148,7 @@
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Geraldin Cordero"
+            android:text="@string/developer3"
             android:textAlignment="center"
             android:textStyle="bold|italic" />
 
@@ -177,7 +177,7 @@
             android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Isabel Marulanda"
+            android:text="@string/developer4"
             android:textAlignment="center"
             android:textStyle="bold|italic" />
 
@@ -207,7 +207,7 @@
             android:id="@+id/textView19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Víctor A. Martinez"
+            android:text="@string/developer5"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textStyle="bold|italic" />

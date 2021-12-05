@@ -117,5 +117,15 @@
     <string name="step_count_begin">INICIA A CONTAR TU PASOS</string>
     <string name="steps_number">Número de pasos</string>
     <string name="counter_start">0</string>
+    <string name="version_app">V 1.0.0 - 07/12/2021</string>
+    <string name="developer1">Raymond Tabares</string>
+    <string name="developer2">Juan Gómez</string>
+    <string name="developer3">Geraldin Cordero</string>
+    <string name="developer4">Isabel Marulanda</string>
+    <string name="developer5">Víctor A. Martinez</string>
+    <string name="choose_routine">Escoja su rutina</string>
+    <string name="session_easy">6-5-5-4</string>
+    <string name="session_medium">7-7-5-5</string>
+    <string name="session_hard">9-9-7-6</string>
 
 </resources>
