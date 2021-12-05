@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Habit Tracker</string>
 
+    <string name="login_error">Error, intente nuevamente</string>
 
     <string name="edit_text_email">e-mail</string>
     <string name="edit_text_password">Contraseña</string>

@@ -134,7 +134,7 @@ public class AuthActivity extends AppCompatActivity {
                     actualizarUI(user);
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.getException());
-                    Toast.makeText(AuthActivity.this, "Ingreso falló.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this, R.string.login_error, Toast.LENGTH_SHORT).show();
                     actualizarUI(null);
                 }
             }
@@ -195,7 +195,7 @@ public class AuthActivity extends AppCompatActivity {
             sig.putExtra("email", user.getEmail().toString());
             startActivity(sig);
         }
-        Toast.makeText(this,"Error intente nuevamente", Toast.LENGTH_SHORT);
+        Toast.makeText(this, this.getString(R.string.login_error), Toast.LENGTH_SHORT);
         Log.d("actualizarUI", "User null");
     }
 }
