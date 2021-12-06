@@ -64,7 +64,7 @@
             app:fab_icon="@drawable/ic_renew_red"
             app:fab_size="mini"
             app:fab_title="@string/reset"
-            android:backgroundTint="@color/black"/>
+            />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabCloud"
