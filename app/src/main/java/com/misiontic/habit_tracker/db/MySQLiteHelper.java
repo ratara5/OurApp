@@ -16,7 +16,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="app_05_db.sqlite";
 
-    private static final int DB_VERSION=6;
+    private static final int DB_VERSION=7;
 
     private final Context context;
 
@@ -71,7 +71,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         */
         //Básico una sola sentencia
         db.execSQL("CREATE TABLE habits(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, description TEXT, category TEXT, checked TEXT)");
+                "name TEXT, description TEXT, category TEXT, checked TEXT DEFAULT 'FALSE')");
         db.execSQL("CREATE TABLE dates(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "date DATETIME, time TEXT, name_habit TEXT, id_habit INTEGER)");
     }
@@ -82,6 +82,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Tables.HABIT);
         db.execSQL("DROP TABLE IF EXISTS " + Tables.DATE);
         onCreate(db);
+        //db.execSQL("ALTER TABLE habits  COLUMN  SET DEFAULT");
     }
 
     public boolean insertData(String sentence){
@@ -113,5 +114,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         int nRows = db.update(table, cv, whereClause, params);
         return  nRows;
+    }
+
+    public void resetData(){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE habits SET checked = 'FALSE'");
     }
 }

@@ -57,6 +57,16 @@
         app:fab_labelStyle="@style/Etiquetas"-->
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="?attr/colorAccent"
+            app:fab_icon="@drawable/ic_renew_red"
+            app:fab_size="mini"
+            app:fab_title="@string/reset"
+            android:backgroundTint="@color/black"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabCloud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

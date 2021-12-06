@@ -129,5 +129,7 @@
     <string name="session_hard">9-9-7-6</string>
     <string name="add_habitsText1">Agrega los habitos que deseas poner en práctica</string>
     <string name="Done_listText">¡Mira la lista de lo que has logrado hoy!</string>
+    <string name="reset">Reiniciar</string>
+    <string name="all_habits_reset">Reseteados todos los hábitos</string>
 
 </resources>

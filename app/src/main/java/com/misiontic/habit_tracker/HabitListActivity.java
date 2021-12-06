@@ -44,7 +44,7 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
     private static ListView listView;
     private static HabitListViewAdapter adapter;
     //private FloatingActionButton fabCreate;
-    private FloatingActionButton fabCreate;
+    private FloatingActionButton fabCreate, fabReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +65,24 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         ab.setHomeAsUpIndicator(R.drawable.ic_back_white);
 
         fabCreate=findViewById(R.id.fabCreate);
+        fabReset=findViewById(R.id.fabReset);
+
         fabCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HabitListActivity.this, NewActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        fabReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MySQLiteHelper connectionBD = new MySQLiteHelper(HabitListActivity.this);
+                connectionBD.resetData();
+                Intent intent = new Intent(HabitListActivity.this, HabitListActivity.class);
+                startActivity(intent);
+                Toast.makeText(HabitListActivity.this, HabitListActivity.this.getString(R.string.all_habits_reset), Toast.LENGTH_SHORT).show();
             }
         });
 
