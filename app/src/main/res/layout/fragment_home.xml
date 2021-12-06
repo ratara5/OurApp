@@ -45,6 +45,21 @@
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
+        <TextView
+            android:id="@+id/tvInstructions1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:text="Agrega los habitos que deseas poner en práctica"
+            android:textColor="@color/secondaryTextColor"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"></Space>
+
+
         <Button
             android:id="@+id/buttonGoListHabits"
             android:layout_width="match_parent"
