@@ -78,10 +78,10 @@ public class TodayHabitsActivity extends AppCompatActivity {
             int id = results.getInt(0);
             int dateId = results.getColumnIndex("date");
             String date = results.getString(dateId);
-            int id_habit = results.getInt(2);
+            String time=results.getString(2);
+            String name_habit=results.getString(3);
 
-
-            todayHabitsList.add(String.valueOf(id)+" - "+date+" - "+String.valueOf(id_habit));
+            todayHabitsList.add(String.valueOf(id)+" - "+time+" - "+String.valueOf(name_habit));
 
         } while (results.moveToNext());
         results.close();

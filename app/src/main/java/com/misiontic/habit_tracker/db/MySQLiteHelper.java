@@ -16,7 +16,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="app_05_db.sqlite";
 
-    private static final int DB_VERSION=5;
+    private static final int DB_VERSION=6;
 
     private final Context context;
 
@@ -73,7 +73,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE habits(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, description TEXT, category TEXT, checked TEXT)");
         db.execSQL("CREATE TABLE dates(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "date DATETIME, id_habit INTEGER)");
+                "date DATETIME, time TEXT, name_habit TEXT, id_habit INTEGER)");
     }
 
 

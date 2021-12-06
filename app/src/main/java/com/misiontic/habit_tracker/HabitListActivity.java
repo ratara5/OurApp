@@ -195,6 +195,7 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         //adapter.notifyDataSetChanged();
         //Enviar normal
         int checkedHabitId=checkedHabit.getId();
+        String checkedHabitName=checkedHabit.getName();
         checkedHabit.setSelected(true);
         /*
         Intent intentToday=new Intent(HabitListActivity.this,TodayHabitsActivity.class);
@@ -227,9 +228,10 @@ public class HabitListActivity extends AppCompatActivity implements HabitListVie
         updateHabitChecked(checkedHabit);
 
         String today = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
 
-        String insertQuery = "INSERT INTO dates(date, id_habit )" +
-                "VALUES('" + today + "','" + checkedHabitId +"')";
+        String insertQuery = "INSERT INTO dates(date,time,name_habit,id_habit )" +
+                "VALUES('" + today + "','"+time+ "','" +checkedHabitName+"','"+ checkedHabitId +"')";
 
         boolean suc = connectionBD.insertData(insertQuery);
         if (suc) {
