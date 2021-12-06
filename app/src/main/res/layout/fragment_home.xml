@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textColor="@color/secondaryTextColor"
         android:text="@string/text_view_home"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -50,14 +51,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/comfortaa"
-            android:text="Agrega los habitos que deseas poner en práctica"
+            android:text="@string/add_habitsText1"
             android:textColor="@color/secondaryTextColor"
             android:textAlignment="center"
             android:textSize="20sp"
             />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"></Space>
+            android:layout_height="20dp"/>
 
 
         <Button
@@ -70,6 +71,20 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/tvInstructions2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:text="@string/Done_listText"
+            android:textColor="@color/secondaryTextColor"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
 
         <Button
             android:id="@+id/buttonGoTodayHabits"
