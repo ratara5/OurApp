@@ -14,6 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -42,6 +43,10 @@ public class HomeActivity extends AppCompatActivity {
 
         final DrawerLayout drawerlayout = findViewById(R.id.drawerLayout);
         NavigationView navigationView = findViewById(R.id.navigationView);
+
+        //EJECUTAR LO SIGUIENTE PARA BORRAR LA BASE DE DATOS AL CAMBIAR VERSIÓN
+        //Context context=getBaseContext();
+        //context.deleteDatabase("app_05_db.sqlite");
 
         //mToolbar = findViewById(R.id.topAppBar);
         //setSupportActionBar(mToolbar);
@@ -89,10 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         //args.putString("emailFromActivityHome", email);
         //ProfileFragment profileFragment = new ProfileFragment();
         //profileFragment.setArguments(args);
-
     }
-
-
 
     public void exit(View view) {
         FirebaseAuth.getInstance().signOut();

@@ -1,6 +1,7 @@
 package com.misiontic.habit_tracker;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
@@ -21,6 +25,10 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LogoutFragment extends Fragment {
 
     Button btnStay;
+
+
+    private GoogleSignInClient mGoogleSignInClient;
+    Button btnExit;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,6 +78,24 @@ public class LogoutFragment extends Fragment {
 
         btnStay=root.findViewById(R.id.button3);
 
+        btnExit=root.findViewById(R.id.button2);
+
+        FirebaseAuth.getInstance();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exit(v);
+            }
+        });
+
         btnStay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,15 +103,18 @@ public class LogoutFragment extends Fragment {
             }
         });
 
-
         return root;
 
     }
 
     public void exit(View view) {
         FirebaseAuth.getInstance().signOut();
-        Activity HomeActivity = getActivity();
-        HomeActivity.onBackPressed();
+        mGoogleSignInClient.signOut();
+        Intent intent = new Intent(getActivity(), AuthActivity.class);
+        startActivity(intent);
+
+        //Activity HomeActivity = getActivity();
+        //HomeActivity.onBackPressed();
     }
 
     public void stay(View view) {

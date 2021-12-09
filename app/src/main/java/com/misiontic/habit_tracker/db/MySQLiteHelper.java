@@ -16,7 +16,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="app_05_db.sqlite";
 
-    private static final int DB_VERSION=7;
+    private static final int DB_VERSION=1;
 
     private final Context context;
 
