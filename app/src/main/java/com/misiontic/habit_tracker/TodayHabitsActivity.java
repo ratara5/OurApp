@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -37,9 +38,11 @@ public class TodayHabitsActivity extends AppCompatActivity {
     private static ListView listView2;
     private MySQLiteHelper connectionBD;
     private static ArrayAdapter adapter2;
+    private String date;
 
     //Calendar
     private EditText etDate;
+    private ImageButton ibCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,17 +103,22 @@ public class TodayHabitsActivity extends AppCompatActivity {
 
         //Calendar
         etDate = findViewById(R.id.etDate);
+        etDate.setText(date);
 
-        etDate.setOnClickListener(new View.OnClickListener() {
+        ibCalendar = findViewById(R.id.ibCalendar);
+        ibCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDatePickerDialog();
                 //break;
             }
         });
+
+
     }
 
     private void showDatePickerDialog() {
+        adapter2.clear();
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -123,6 +131,30 @@ public class TodayHabitsActivity extends AppCompatActivity {
                 }
                 String selectedDate = dy + "-" + (month+1) + "-" + year;
                 etDate.setText(selectedDate);
+
+                MySQLiteHelper connectionBD = new MySQLiteHelper(getApplicationContext());
+                String sentence = "SELECT * FROM dates WHERE date = ?";
+                String[] params = new String[]{String.valueOf(selectedDate)};
+                Cursor results = connectionBD.getData(sentence, params);
+                try {
+                    results.moveToFirst();
+                    do {
+                        int id = results.getInt(0);
+                        int dateId = results.getColumnIndex("date");
+                        String date = results.getString(dateId);
+                        String time = results.getString(2);
+                        String name_habit = results.getString(3);
+
+                        todayHabitsList.add(String.valueOf(id) + " - " + date + " - " + time + " - " + String.valueOf(name_habit));
+
+                    } while (results.moveToNext());
+                    results.close();
+                }catch (Exception e) {
+                    Toast.makeText(TodayHabitsActivity.this, TodayHabitsActivity.this.getString(R.string.failure_on_get), Toast.LENGTH_LONG).show();
+                }
+
+                adapter2.notifyDataSetChanged();
+                listView2.setAdapter(adapter2);
             }
         });
 
